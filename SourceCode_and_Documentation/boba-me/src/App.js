@@ -3,7 +3,9 @@ import Header from './components/Header'
 import Button from './components/Button'
 
 
+
 function App() {
+
   return (
     <div className="App">
       {/*
@@ -14,8 +16,11 @@ function App() {
         right       => the right hand side of the landing, including : randomiser
       */}
       <div className="top_banner"> 
-        <img src={logo}></img>
-        <Header title='Boba Me!'/>
+        <img 
+          src={logo}
+          width='60'
+          height='60'></img>
+        <p2>Boba Me!</p2>
         <Button text='My Rewards!' colour='goldenrod'/>
         <Button text='Log in' colour='AntiqueWhite'/> 
       </div>
@@ -27,7 +32,13 @@ function App() {
 
           <div className="left">
             <p1>business slogan</p1>
-            <p1>Search for shop or drink !</p1>
+            <label for="site-search">Search for shop or drink !</label>
+            <input type="search" id="site-search" name="q" aria-label="Search through site content"></input>
+
+            <select id="search_option">
+                <option value="shop">search by shop</option>
+                <option value="drink">search by drink</option>
+            </select>
             <Button text='Search' colour='deepskyblue'/>
           </div>
 
