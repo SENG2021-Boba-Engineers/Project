@@ -1,7 +1,19 @@
 .top_banner{
+    display: flex;
+    justify-content:space-between;
     width: 100%;
     background-color: LightCyan;
     height: 60px;
+}
+
+.left_banner{
+    display: flex;
+    flex-direction: column; 
+}
+
+.right_banner{
+   display: flex;
+   justify-content: center; 
 }
 
 .body{
@@ -21,6 +33,8 @@
 
 .right{
     display: flex;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     margin-bottom: 20px;
