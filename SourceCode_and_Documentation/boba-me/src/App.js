@@ -13,9 +13,40 @@ function App() {
     // dummy function that does nothing but is required for infite scroll
   };
 
+  //sample function
+  const event = () => {
+    var body = document.getElementById('body');
+    body.remove();
+  }
+
+  //to-do
+  const search =() => {
+
+  }
+
+  //to-do
+  const randomise = () => {
+
+  }
+
+  //to-do
+  const reward = () => {
+
+  }
+
+  //to-do
+  const login = () => {
+
+  }
+
+  //to-do
+  const logout =() => {
+    
+  }
+
 
   return (
-    <div className="App">
+    <div className="App"  style={{ backgroundImage: `url(${bg_img})` }}>
       {/*
       Main divs:
         top_banner  => the top menu banner including login, log & rewards
@@ -39,13 +70,13 @@ function App() {
 
 	<div className="right_banner">
 	  <Button text='My Rewards!' colour='goldenrod'/>
-	  <Button text='Log in' colour='AntiqueWhite'/> 
+	  <Button text='Log in' colour='AntiqueWhite' event={event}/> 
 	</div>
 
       </div>
 
 
-      <div className="body" style={{ backgroundImage: `url(${bg_img})` }}>
+      <div id='body' className="body">
 
         <div className="landing">
 
