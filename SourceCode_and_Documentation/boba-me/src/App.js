@@ -14,6 +14,9 @@ function App() {
         landing     => the landing screen when someone visit include left & right
         left        => the left hand side of the landing, including : search bar/ filer/ search button / business slogan
         right       => the right hand side of the landing, including : randomiser
+        bottom      => the bottom half of the homepage, including drinks and shops 
+        drinks      => contains drinks profiles
+        shops       => contains shops profiles
       */}
       <div className="top_banner"> 
         <img 
@@ -47,6 +50,19 @@ function App() {
             <Button text='change into fortune wheel later' colour='lightcoral'/>
           </div>          
         </div> 
+
+        <div className = "bottom">
+
+          <div className = "drink">
+            <Header title="Popular drinks"/>            
+          </div>
+
+          <div className = "shop">
+            <Header title="Popular shops"/>
+          </div>
+
+        
+        </div>
 
       </div>
     </div>
