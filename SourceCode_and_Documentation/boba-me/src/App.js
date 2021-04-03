@@ -1,7 +1,8 @@
 import logo from './resouces/logo.png'
+import tea from './resouces/pearl-milk-tea.png'
 import Header from './components/Header'
 import Button from './components/Button'
-
+import Profile from './components/Profile'
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className="App">
       {/*
+      Main divs:
         top_banner  => the top menu banner including login, log & rewards
         body        => the bulk of the information will display here
         landing     => the landing screen when someone visit include left & right
@@ -17,6 +19,7 @@ function App() {
         bottom      => the bottom half of the homepage, including drinks and shops 
         drinks      => contains drinks profiles
         shops       => contains shops profiles
+        other inner divs ... 
       */}
       <div className="top_banner"> 
         <img 
@@ -54,7 +57,14 @@ function App() {
         <div className = "bottom">
 
           <div className = "drink">
-            <Header title="Popular drinks"/>            
+            <Header title="Popular drinks"/> 
+
+            <div className='container'>
+              <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
+              <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
+              <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
+            </div>
+            
           </div>
 
           <div className = "shop">

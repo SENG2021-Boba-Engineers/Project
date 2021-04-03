@@ -45,8 +45,8 @@
 
 .drink{
     display: flex;
-    text-align: left;
-    float: center;
+    justify-content: center;
+    flex-direction: column;
     width: 50%;
 }
 
@@ -56,4 +56,18 @@
     float: center;
     width: 50%;
 }
+
+.container{
+    display: grid;
+    padding-top: 20px;
+
+}
+
+.grid-item{
+    display: inline-grid;
+    flex-direction: row;
+    width: 33%;
+}
+
+
 
