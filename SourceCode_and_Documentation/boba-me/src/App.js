@@ -75,6 +75,12 @@ function App() {
 
           <div className = "shop">
             <Header title="Popular shops"/>
+  
+            <div className='container'>
+              <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
+              <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
+              <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
+            </div>
           </div>
 
         
