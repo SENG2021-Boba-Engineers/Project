@@ -18,14 +18,20 @@ function App() {
         drinks      => contains drinks profiles
         shops       => contains shops profiles
       */}
-      <div className="top_banner"> 
-        <img 
-          src={logo}
-          width='60'
-          height='60'></img>
-        <p2>Boba Me!</p2>
-        <Button text='My Rewards!' colour='goldenrod'/>
-        <Button text='Log in' colour='AntiqueWhite'/> 
+      <div className="top_banner">
+        <div className="left_banner">
+          <img 
+            src={logo}
+            width='60'
+            height='60'></img>
+          <p2>Boba Me!</p2>        
+	</div>
+
+	<div className="right_banner">
+	  <Button text='My Rewards!' colour='goldenrod'/>
+	  <Button text='Log in' colour='AntiqueWhite'/> 
+	</div>
+
       </div>
 
 
