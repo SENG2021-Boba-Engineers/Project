@@ -1,8 +1,13 @@
+.body{
+    align-items: center;
+    width: 100%;
+}
+
 .top_banner{
     display: flex;
     justify-content:space-between;
     width: 100%;
-    background-color: LightCyan;
+    background-color: rgb(170, 228, 223);
     height: 60px;
 }
 
@@ -14,11 +19,6 @@
 .right_banner{
    display: flex;
    justify-content: center; 
-}
-
-.body{
-    align-items: center;
-    width: 100%;
 }
 
 .left{

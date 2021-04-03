@@ -1,11 +1,18 @@
 import logo from './resouces/logo.png'
-import tea from './resouces/pearl-milk-tea.png'
+import bg_img from './resouces/background.jpg'
+import InfiniteScroll from 'react-infinite-scroll-component'
 import Header from './components/Header'
 import Button from './components/Button'
 import Profile from './components/Profile'
 
 
 function App() {
+  const list = ['red', 'blue'] 
+
+  const fetchData = () => {
+    // dummy function that does nothing but is required for infite scroll
+  };
+
 
   return (
     <div className="App">
@@ -19,7 +26,7 @@ function App() {
         bottom      => the bottom half of the homepage, including drinks and shops 
         drinks      => contains drinks profiles
         shops       => contains shops profiles
-        other inner divs ... 
+      Other inner divs ... 
       */}
       <div className="top_banner">
         <div className="left_banner">
@@ -27,7 +34,7 @@ function App() {
             src={logo}
             width='60'
             height='60'></img>
-          <p2>Boba Me!</p2>        
+          <p>Boba Me!</p>        
 	</div>
 
 	<div className="right_banner">
@@ -38,13 +45,13 @@ function App() {
       </div>
 
 
-      <div className="body">
+      <div className="body" style={{ backgroundImage: `url(${bg_img})` }}>
 
         <div className="landing">
 
           <div className="left">
-            <p1>business slogan</p1>
-            <label for="site-search">Search for shop or drink !</label>
+            <p>business slogan</p>
+            <p >Search for shop or drink !</p>
             <input type="search" id="site-search" name="q" aria-label="Search through site content"></input>
 
             <select id="search_option">
@@ -55,7 +62,7 @@ function App() {
           </div>
 
           <div className="right">
-            <p1>feeling lucky?</p1>
+            <p>feeling lucky?</p>
             <Button text='change into fortune wheel later' colour='lightcoral'/>
           </div>          
         </div> 
@@ -68,9 +75,29 @@ function App() {
             <div className='container'>
               <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
               <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-              <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
+              <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} /> 
             </div>
             
+            <InfiniteScroll
+                dataLength={list.length} //This is important field to render the next data
+                next={fetchData}
+                hasMore={true}
+                //loader={<h4>Loading...</h4>}
+                endMessage={
+                  <p style={{ textAlign: 'center' }}>
+                    <b>Yay! You have seen it all</b>
+                  </p>
+                }
+              >
+                {list.map((element ,index) => (
+                  <div className='container'>
+                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
+                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
+                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />                   
+                  </div>
+                ))}
+
+              </InfiniteScroll>
           </div>
 
           <div className = "shop">
@@ -81,6 +108,26 @@ function App() {
               <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
               <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
             </div>
+            <InfiniteScroll
+                dataLength={list.length} //This is important field to render the next data
+                next={fetchData}
+                hasMore={true}
+                //loader={<h4>Loading...</h4>}
+                endMessage={
+                  <p style={{ textAlign: 'center' }}>
+                    <b>Yay! You have seen it all</b>
+                  </p>
+                }
+              >
+                {list.map((element ,index) => (
+                  <div className='container'>
+                    <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
+                    <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
+                    <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />                  
+                  </div>
+                ))}
+
+              </InfiniteScroll>
           </div>
 
         
