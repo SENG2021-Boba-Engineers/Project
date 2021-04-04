@@ -16,15 +16,20 @@ class Home extends Component {
             <div className="landing">
     
               <div className="left">
-                <p>business slogan</p>
-                <p >Search for shop or drink !</p>
-                <input type="search" id="site-search" name="q" aria-label="Search through site content"></input>
-    
-                <select id="search_option">
-                    <option value="shop">search by shop</option>
-                    <option value="drink">search by drink</option>
-                </select>
-                <Button text='Search' colour='deepskyblue'/>
+                <div>
+                    <p>business slogan</p>
+                </div>
+                <div>
+                    <p >Search for shop or drink !</p>
+                    <input type="search" id="site-search" name="q" aria-label="Search through site content"></input>
+        
+                    <select id="search_option">
+                        <option value="shop">search by shop</option>
+                        <option value="drink">search by drink</option>
+                    </select>
+                    <Button text='Search' colour='deepskyblue'/>                    
+                </div>
+
               </div>
     
               <div className="right">
