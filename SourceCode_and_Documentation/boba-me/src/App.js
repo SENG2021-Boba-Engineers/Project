@@ -1,9 +1,9 @@
 import logo from './resouces/logo.png'
 import bg_img from './resouces/background.jpg'
-import InfiniteScroll from 'react-infinite-scroll-component'
 import Header from './components/Header'
 import Button from './components/Button'
 import Profile from './components/Profile'
+import history from './history'
 
 
 function App() {
@@ -14,39 +14,34 @@ function App() {
   };
 
   //sample function
-  const event = () => {
-    var body = document.getElementById('body');
-    body.remove();
+  const reward = () => {
+    console.log("does something")
   }
 
   //to-do
   const search =() => {
-
+    // fetch from our own api
   }
 
   //to-do
   const randomise = () => {
-
-  }
-
-  //to-do
-  const reward = () => {
-
+    // fetch drink list and choose randomly
   }
 
   //to-do
   const login = () => {
-
+    // grab credentials and check with google api
+    // change state 
   }
 
   //to-do
   const logout =() => {
-    
+    // change state
   }
 
 
   return (
-    <div className="App"  style={{ backgroundImage: `url(${bg_img})` }}>
+    <div className="App">
       {/*
       Main divs:
         top_banner  => the top menu banner including login, log & rewards
@@ -59,6 +54,8 @@ function App() {
         shops       => contains shops profiles
       Other inner divs ... 
       */}
+
+
       <div className="top_banner">
         <div className="left_banner">
           <img 
@@ -66,106 +63,22 @@ function App() {
             width='60'
             height='60'></img>
           <p>Boba Me!</p>        
-	</div>
-
-	<div className="right_banner">
-	  <Button text='My Rewards!' colour='goldenrod'/>
-	  <Button text='Log in' colour='AntiqueWhite' event={event}/> 
-	</div>
-
-      </div>
-
-
-      <div id='body' className="body">
-
-        <div className="landing">
-
-          <div className="left">
-            <p>business slogan</p>
-            <p >Search for shop or drink !</p>
-            <input type="search" id="site-search" name="q" aria-label="Search through site content"></input>
-
-            <select id="search_option">
-                <option value="shop">search by shop</option>
-                <option value="drink">search by drink</option>
-            </select>
-            <Button text='Search' colour='deepskyblue'/>
-          </div>
-
-          <div className="right">
-            <p>feeling lucky?</p>
-            <Button text='change into fortune wheel later' colour='lightcoral'/>
-          </div>          
-        </div> 
-
-        <div className = "bottom">
-
-          <div className = "drink">
-            <Header title="Popular drinks"/> 
-
-            <div className='container'>
-              <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-              <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-              <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} /> 
-            </div>
-            
-            <InfiniteScroll
-                dataLength={list.length} //This is important field to render the next data
-                next={fetchData}
-                hasMore={true}
-                //loader={<h4>Loading...</h4>}
-                endMessage={
-                  <p style={{ textAlign: 'center' }}>
-                    <b>Yay! You have seen it all</b>
-                  </p>
-                }
-              >
-                {list.map((element ,index) => (
-                  <div className='container'>
-                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />                   
-                  </div>
-                ))}
-
-              </InfiniteScroll>
-          </div>
-
-          <div className = "shop">
-            <Header title="Popular shops"/>
-  
-            <div className='container'>
-              <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-              <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-              <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-            </div>
-            <InfiniteScroll
-                dataLength={list.length} //This is important field to render the next data
-                next={fetchData}
-                hasMore={true}
-                //loader={<h4>Loading...</h4>}
-                endMessage={
-                  <p style={{ textAlign: 'center' }}>
-                    <b>Yay! You have seen it all</b>
-                  </p>
-                }
-              >
-                {list.map((element ,index) => (
-                  <div className='container'>
-                    <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-                    <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-                    <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />                  
-                  </div>
-                ))}
-
-              </InfiniteScroll>
-          </div>
-
-        
+	      </div>
+        <div className="right_banner">
+          <button onClick={() => history.push('/reward')}>Click</button>
+          <Button text='My Rewards!' colour='goldenrod'/>
+          <Button text='Log in' colour='AntiqueWhite' event={reward}/> 
         </div>
 
       </div>
+
+      
+
     </div>
+  
+
+  
+                  
   )
 }
 
