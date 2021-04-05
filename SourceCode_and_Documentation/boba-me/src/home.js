@@ -2,7 +2,7 @@ import {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
 import bg_img from './resouces/background.jpg'
 import Header from './components/Header'
-import Button from './components/Button'
+import Button from './components/Button_Old'
 import Profile from './components/Profile'
 
 class Home extends Component {
