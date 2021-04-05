@@ -138,115 +138,50 @@
     height: 90%;
 }
 
-.reward{
+.drinkleft-profile{
     display: flex;
-    align-items: center;
     flex-direction: column;
-    min-height: 1500px;
+    float:left;
+    width: 60%;
 }
 
-.left-reward{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+.drink-ingredients{
+    padding-left: 70px;
+    display: table-cell;
+}
+
+.drink-pic{
     float: left;
-    width: 45%;
-    text-align: center;
 }
 
-.right-reward{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+.ingredients{
     float: left;
-    width: 45%;
-    text-align: center;
+} 
 
+.rating{
+    padding-left: 110px;
+    display: inline;
 }
 
-.result{
-    display: flex;
-    min-height: 1500px;
-    flex-direction: column;
+.rating-colour{
+    background: aqua;
+    border-radius: 10px;
+    width: 375px;
 }
 
-.result-banner{
-    display: flex;
-    align-items: center;
+.star{
+    background: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: inline-block;
+    height: 75px;
+    width: 75px;
 }
 
-.result-body{
-    display: flex;
+.rating-button{
+    padding-left: 145px;
 }
 
-.filter{
-    padding: 20px;
-    display:flex;
-    flex-direction: column;
-    width: 20%;
-}
-
-.filter-box{
-    padding: 20px;
-    background-color: transparent;
-    border-style: ridge;
-    border-color: grey;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    min-height: 500px;
-    opacity: 900%;
-}
-
-.result-list{
-    display: flex;
-    padding: 20px;
-    width: 70%;
-}
-
-.result-grid{
-    display: flex;
-    padding: 20px;
-    gap: 30px;
-    border-style: ridge;
-    border-color: grey;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    opacity: 900%;
-    width: 100%;
-    max-block-size: 100%;
-    text-align: center;
-    flex-wrap: wrap;
-}
-
-.profile{
-    display:flex;
-    border-color: navy;
-    border-style: solid;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    width: 350px;
-    height: 200px;
-}
-
-.profile_display_left{
-    padding: 30px;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 70%
-}
-
-.profile_display_right{
-    padding-top: 30px;
-    padding-right: 40px;
-    display: flex;
-    width: 30%;
-    float: left;
+.shop-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
