@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
+import './routes'
 //import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render( <App />, document.getElementById('root')
+ReactDOM.render( 
+<React.StrictMode>
+    <Router>
+      <App />
+      <Routes />
+    </Router>
+  </React.StrictMode>, document.getElementById('root')
 );
 
 /*
