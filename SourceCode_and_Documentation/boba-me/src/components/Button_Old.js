@@ -1,5 +1,5 @@
 import history from '../history'
-import Routes from '../Routes'
+import Routes from '../routes'
 
 const Button = ({text,colour,event}) => {
 
