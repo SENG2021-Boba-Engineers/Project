@@ -1,7 +1,7 @@
 export const MenuItems = [
     {
-        title: 'Login',
-        url: '#',
+        title: 'Home',
+        url: 'home',
         // Classname
         cName: "nav-links"
     },
