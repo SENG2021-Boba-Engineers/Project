@@ -5,8 +5,6 @@ import Header from './components/Header'
 import Button from './components/Button'
 import Profile from './components/Profile'
 
-
-
 class Home extends Component {
   
     render() {
