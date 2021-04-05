@@ -5,7 +5,7 @@ import './index.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from './home';
 import Reward from './reward';
-import Result from './Result';
+import Result from './result';
 import Profile from './profile'
 import DrinkProfile from './drinkprofile'
 import reportWebVitals from './reportWebVitals';
