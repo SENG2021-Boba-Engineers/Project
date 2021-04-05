@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Router, Switch, Route } from "react-router-dom";
 
-import Home from './Home';
-import Reward from './Reward';
+import Home from './home';
+import Reward from './reward';
 import history from './history';
 
 export default class Routes extends Component {
