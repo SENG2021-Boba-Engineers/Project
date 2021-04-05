@@ -4,25 +4,6 @@
     background-repeat: repeat;
 }
 
-.top_banner{
-    display: flex;
-    justify-content:space-between;
-    width: 100%;
-    background-color: rgb(170, 228, 223);
-    height: 60px;
-}
-
-.left_banner{
-    display: flex;
-    float: left; 
-    width: 60%;
-}
-
-.right_banner{
-   display: flex;
-   justify-content: center; 
-}
-
 .left{
     display: flex;
     flex-direction: column;
@@ -73,9 +54,14 @@
     width: 50%;
 }
 
+.container-heading {
+    text-align: center;
+}
+
 .container{
     display: flex;
     padding: 10px;
+    margin-left: 15%;
     align-items: top;
 
 }
@@ -142,7 +128,7 @@
     padding: 20px;
     border: 5px;
     border-style: solid;
-    border-color: rgb(206, 174, 88);
+    border-color: #fff;
     background-color: blanchedalmond;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -263,4 +249,52 @@
     display: flex;
     width: 30%;
     float: left;
+}
+
+.drinkleft-profile{
+    display: flex;
+    flex-direction: column;
+    float:left;
+    width: 60%;
+}
+
+.drink-ingredients{
+    padding-left: 70px;
+    display: table-cell;
+}
+
+.drink-pic{
+    float: left;
+}
+
+.ingredients{
+    float: left;
+} 
+
+.rating{
+    padding-left: 110px;
+    display: inline;
+}
+
+.rating-colour{
+    background: aqua;
+    border-radius: 10px;
+    width: 375px;
+}
+
+.star{
+    background: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+}
+
+.rating-button{
+    padding-left: 145px;
+}
+
+.shop-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }

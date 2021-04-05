@@ -2,10 +2,8 @@ import {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
 import bg_img from './resources/background.jpg'
 import Header from './components/Header'
-import Button from './components/Button'
+import Button from './components/Button_Jing'
 import Profile from './components/Profile'
-
-
 
 class Home extends Component {
   
@@ -30,23 +28,25 @@ class Home extends Component {
 
     render() {
         return (
-            <div id='body' className="body"  style={{ backgroundImage: `url(${bg_img})` }}>
+            <div id='body' className="body">
 
             <div className="landing">
     
               <div className="left">
                 <div>
-                    <p>business slogan</p>
+                    <p>Get Bubblin' Now</p>
                 </div>
                 <div>
-                    <p >Search for shop or drink !</p>
+                    <p >Search for a Drink or Shop</p>
                     <input type="search" id="site-search" name="q" aria-label="Search through site content"></input>
         
                     <select id="search_option">
-                        <option value="shop">search by shop</option>
-                        <option value="drink">search by drink</option>
+                        <option value="shop">Search by Shop</option>
+                        <option value="drink">Search by Drink</option>
                     </select>
-                    <Button text='Search' colour='deepskyblue'/>                    
+                    <a href="result">
+                    <Button text='Search' colour='deepskyblue'/>
+                    </a>               
                 </div>
 
               </div>
@@ -60,14 +60,14 @@ class Home extends Component {
             <div className = "bottom">
     
               <div className = "drink">
-                <Header title="Popular drinks"/> 
-    
+                <div className="container-heading">
+                  <h1>Popular Drinks</h1>                  
+                </div>
                 <div className='container'>
                   <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
                   <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
                   <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} /> 
                 </div>
-                
                 
                 <InfiniteScroll
                     dataLength={this.state.items.length} //This is important field to render the next data
@@ -93,8 +93,9 @@ class Home extends Component {
               </div>
     
               <div className = "shop">
-                <Header title="Popular shops"/>
-      
+                <div className="container-heading">
+                  <h1>Popular Shops</h1>                  
+                </div>
                 <div className='container'>
                   <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
                   <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
