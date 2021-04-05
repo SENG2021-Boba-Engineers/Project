@@ -6,6 +6,7 @@ import Reward from './Reward';
 import history from './history';
 import Result from './Result'
 import Profile from './Profile'
+import DrinkProfile from "./DrinkProfile";
 
 export default class Routes extends Component {
     render() {
@@ -16,6 +17,7 @@ export default class Routes extends Component {
                     <Route path="/result" component={Result} />
                     <Route path="/reward" component={Reward} />
                     <Route path="/profile" component={Profile} />
+                    <Route path="/drinkprofile" component={DrinkProfile} />
                 </Switch>
             </Router>
         )

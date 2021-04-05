@@ -145,4 +145,50 @@
     height: 90%;
 }
 
+.drinkleft-profile{
+    display: flex;
+    flex-direction: column;
+    float:left;
+    width: 60%;
+}
 
+.drink-ingredients{
+    padding-left: 70px;
+    display: table-cell;
+}
+
+.drink-pic{
+    float: left;
+}
+
+.ingredients{
+    float: left;
+} 
+
+.rating{
+    padding-left: 110px;
+    display: inline;
+}
+
+.rating-colour{
+    background: aqua;
+    border-radius: 10px;
+    width: 375px;
+}
+
+.star{
+    background: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+}
+
+.rating-button{
+    padding-left: 145px;
+}
+
+.shop-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
