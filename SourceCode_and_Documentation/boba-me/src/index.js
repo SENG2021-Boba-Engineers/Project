@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './routes'
-//import reportWebVitals from './reportWebVitals';
+import './index.css'
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import Home from './home';
+import Reward from './reward';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render( 
-<React.StrictMode>
-    <Router>
-      <App />
-      <Routes />
-    </Router>
-  </React.StrictMode>, document.getElementById('root')
+  <Router>
+    <App />
+    <Switch>
+        <Route path="/home" component={Home}/>
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
+        <Route path="/reward" component={Reward} />
+    </Switch>
+  </Router>, document.getElementById('root')
 );
 
 /*

@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from "./components/Navbar/Navbar"
 import './App.css'
-import history from './history'
 
 function App() {
 
@@ -39,9 +38,7 @@ function App() {
   */
 
   return (
-    <div className="App">
-      <Navbar />
-    </div>
+    <Navbar />
   );
 
 }
