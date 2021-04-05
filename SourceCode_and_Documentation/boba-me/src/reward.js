@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import bg_img from './resources/background.jpg'
-import Button from './components/Button'
+import Button from './components/Button_Jing'
 
 class Reward extends Component {
     render() {
         return (
-            <div className='reward' style={{ backgroundImage: `url(${bg_img})` }} >
+            <div className='reward'>
                 <div><h2>My Rewards</h2></div>
 
                 <div className='left-reward'>

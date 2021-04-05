@@ -19,10 +19,13 @@
     color: #F7807D;
 }
 
+.logo-redirect {
+    text-decoration: none;
+}
+
 .navbar-logo>img {
     width: 70px;
 }
-
 
 .nav-menu {
     display: grid;

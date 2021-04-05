@@ -16,9 +16,11 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="NavbarItems">
+                <a className="logo-redirect" href="home">
                 <h1 className="navbar-logo">
                     Boba Me<img src={icon}/>
                 </h1>
+                </a>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
@@ -33,7 +35,9 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <Button>My Rewards</Button>
+                <a href="reward">
+                  <Button>My Rewards</Button>
+                </a>
             </nav>
         )
     }

@@ -5,6 +5,7 @@ import './index.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from './home';
 import Reward from './reward';
+import Result from './result';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render( 
@@ -16,6 +17,7 @@ ReactDOM.render(
           <Redirect to="/home" />
         </Route>
         <Route path="/reward" component={Reward} />
+        <Route path="/result" component={Result} />
     </Switch>
   </Router>, document.getElementById('root')
 );

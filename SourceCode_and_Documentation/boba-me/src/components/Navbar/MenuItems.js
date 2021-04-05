@@ -1,13 +1,13 @@
 export const MenuItems = [
     {
-        title: 'Home',
-        url: 'home',
+        title: 'Log In',
+        url: 'reward',
         // Classname
         cName: "nav-links"
     },
     {
         title: 'My Rewards',
-        url: '#',
+        url: 'rewards',
         // Classname
         cName: "nav-links-mobile"
     }

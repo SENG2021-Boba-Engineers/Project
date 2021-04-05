@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import bg_img from './resources/background.jpg'
-import Button from './components/Button'
+import Button from './components/Button_Jing'
 import Result_profile from './components/Result_profile'
 
 class Result extends Component {
     render() {
         return (
-            <div className='result' style={{ backgroundImage: `url(${bg_img})` }} >
+            <div className='result'>
 
                 <div className='result-banner'>
                     <h2>Results</h2>
