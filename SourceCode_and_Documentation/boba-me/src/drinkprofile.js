@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from './components/Button';
+import Button from './components/Button_Jing';
 import bg_img from './resources/background.jpg'
 import Profile from './components/Profile'
 import InfiniteScroll from 'react-infinite-scroll-component';
