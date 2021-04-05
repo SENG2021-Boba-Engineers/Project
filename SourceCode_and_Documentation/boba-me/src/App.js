@@ -37,7 +37,8 @@ function App() {
   }
   */
 
-  return (
+ return (
+    // Constant Across Whole App
     <Navbar />
   );
 
