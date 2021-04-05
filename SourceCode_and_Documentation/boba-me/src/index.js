@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import Home from './home';
 import Reward from './reward';
 import Result from './result';
+import Profile from './profile'
+import DrinkProfile from './drinkprofile'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render( 
@@ -18,6 +20,8 @@ ReactDOM.render(
         </Route>
         <Route path="/reward" component={Reward} />
         <Route path="/result" component={Result} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/drinkprofile" component={DrinkProfile} />
     </Switch>
   </Router>, document.getElementById('root')
 );
