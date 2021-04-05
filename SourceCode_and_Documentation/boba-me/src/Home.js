@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
-import bg_img from './resouces/background.jpg'
+import bg_img from './resources/background.jpg'
 import Header from './components/Header'
 import Button from './components/Button'
 import Profile from './components/Profile'
@@ -9,6 +9,25 @@ import Profile from './components/Profile'
 
 class Home extends Component {
   
+  state = {
+    items: Array.from({ length: 20 }),
+    hasMore: true
+  };
+
+  fetchMoreData = () => {
+    // a fake async api call like which sends
+    // 20 more records in 1.5 secs
+    setTimeout(() => {
+      if (this.state.items.length >= 40) {
+        this.setState({ hasMore: false });
+        return;
+      }
+      this.setState({
+        items: this.state.items.concat(Array.from({ length: 20 }))
+      });
+    }, 1500);
+  };
+
     render() {
         return (
             <div id='body' className="body"  style={{ backgroundImage: `url(${bg_img})` }}>
@@ -44,15 +63,15 @@ class Home extends Component {
                 <Header title="Popular drinks"/> 
     
                 <div className='container'>
-                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-                  <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} /> 
+                  <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
+                  <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
+                  <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} /> 
                 </div>
                 
-                {/* 
+                
                 <InfiniteScroll
-                    dataLength={list.length} //This is important field to render the next data
-                    next={fetchData}
+                    dataLength={this.state.items.length} //This is important field to render the next data
+                    next={this.fetchMoreData}
                     hasMore={true}
                     //loader={<h4>Loading...</h4>}
                     endMessage={
@@ -61,30 +80,30 @@ class Home extends Component {
                       </p>
                     }
                   >
-                    {list.map((element ,index) => (
+                    {this.state.items.map((element ,index) => (
                       <div className='container'>
-                      <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-                      <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />  
-                      <Profile drink='perl mik tea' img={require('./resouces/pearl-milk-tea.png')} />                   
+                      <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
+                      <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
+                      <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />                   
                       </div>
                     ))}
     
                   </InfiniteScroll>
-                  */}
+                  
               </div>
     
               <div className = "shop">
                 <Header title="Popular shops"/>
       
                 <div className='container'>
-                  <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-                  <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-                  <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
+                  <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
+                  <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
+                  <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
                 </div>
-                {/* 
+               
                 <InfiniteScroll
-                    dataLength={list.length} //This is important field to render the next data
-                    next={fetchData}
+                    dataLength={this.state.items.length} //This is important field to render the next data
+                    next={this.fetchMoreData}
                     hasMore={true}
                     //loader={<h4>Loading...</h4>}
                     endMessage={
@@ -93,16 +112,16 @@ class Home extends Component {
                       </p>
                     }
                   >
-                    {list.map((element ,index) => (
+                    {this.state.items.map((element ,index) => (
                       <div className='container'>
-                        <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-                        <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />  
-                        <Profile drink='Coco' img={require('./resouces/Coco.jpg')} />                  
+                        <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
+                        <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
+                        <Profile drink='Coco' img={require('./resources/Coco.jpg')} />                  
                       </div>
                     ))}
     
-                  </InfiniteScroll>
-                  */}
+                </InfiniteScroll>
+                 
               </div>
     
             

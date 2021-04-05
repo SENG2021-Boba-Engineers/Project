@@ -1,5 +1,4 @@
-import logo from './resouces/logo.png'
-import bg_img from './resouces/background.jpg'
+import logo from './resources/logo.png'
 import Header from './components/Header'
 import Button from './components/Button'
 import Profile from './components/Profile'
@@ -7,15 +6,9 @@ import history from './history'
 
 
 function App() {
-  const list = ['red', 'blue'] 
-
-  const fetchData = () => {
-    // dummy function that does nothing but is required for infite scroll
-  };
-
   //sample function
   const reward = () => {
-    console.log("does something")
+    history.push('/reward')
   }
 
   //to-do
@@ -38,8 +31,6 @@ function App() {
   const logout =() => {
     // change state
   }
-
-
   return (
     <div className="App">
       {/*
@@ -55,14 +46,13 @@ function App() {
       Other inner divs ... 
       */}
 
-
       <div className="top_banner">
         <div className="left_banner">
           <img 
             src={logo}
             width='60'
             height='60'></img>
-          <p>Boba Me!</p>        
+            <h2>Boba Me!</h2>      
 	      </div>
         <div className="right_banner">
           <button onClick={() => history.push('/reward')}>Click</button>
@@ -74,10 +64,7 @@ function App() {
 
     
     </div>
-
-
-  
-                  
+       
   )
 }
 
