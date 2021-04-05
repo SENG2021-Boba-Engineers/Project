@@ -112,6 +112,7 @@
 }
 
 .menu{
+    padding:20px;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -119,6 +120,7 @@
 }
 
 .topping{
+    padding:20px;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -140,9 +142,125 @@
     padding: 20px;
     border: 5px;
     border-style: solid;
-    border-color: aqua;
+    border-color: rgb(206, 174, 88);
+    background-color: blanchedalmond;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
     width: 90%;
     height: 90%;
 }
 
+.reward{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 1500px;
+}
 
+.left-reward{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 45%;
+    text-align: center;
+}
+
+.right-reward{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 45%;
+    text-align: center;
+
+}
+
+.result{
+    display: flex;
+    min-height: 1500px;
+    flex-direction: column;
+}
+
+.result-banner{
+    display: flex;
+    align-items: center;
+}
+
+.result-body{
+    display: flex;
+}
+
+.filter{
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.filter-box{
+    padding: 20px;
+    background-color: transparent;
+    border-style: ridge;
+    border-color: grey;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    min-height: 500px;
+    opacity: 900%;
+}
+
+.result-list{
+    display: flex;
+    padding: 20px;
+    width: 70%;
+}
+
+.result-grid{
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+    border-style: ridge;
+    border-color: grey;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    opacity: 900%;
+    width: 100%;
+    max-block-size: 100%;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.profile{
+    display:flex;
+    border-color: navy;
+    border-style: solid;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    width: 350px;
+    height: 200px;
+}
+
+.profile_display_left{
+    padding: 30px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 70%
+}
+
+.profile_display_right{
+    padding-top: 30px;
+    padding-right: 40px;
+    display: flex;
+    width: 30%;
+    float: left;
+}
