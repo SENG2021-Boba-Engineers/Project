@@ -1,16 +1,36 @@
-import {Component} from 'react';
+import {Component,Fragment} from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
-import bg_img from './resources/background.jpg'
 import Header from './components/Header'
 import Button from './components/Button_Jing'
 import Profile from './components/Profile'
+import {motion} from 'framer-motion'
+
 
 class Home extends Component {
-  
   state = {
     items: Array.from({ length: 20 }),
-    hasMore: true
+    hasMore: true,
+    rotate: 0
+
   };
+
+  getRotate = () => {
+    return this.state.rotate;
+  }
+
+  setRotate = () => {
+    this.setState({
+      rotate: Math.random() * (2800-1070) + 1070
+    })
+  }
+
+  resetRotate = () =>{
+    this.setState({
+      rotate: 0
+    })
+  }
+
+
 
   fetchMoreData = () => {
     // a fake async api call like which sends
@@ -29,7 +49,7 @@ class Home extends Component {
     render() {
         return (
             <div id='body' className="body">
-
+            
             <div className="landing">
     
               <div className="left">
@@ -51,9 +71,56 @@ class Home extends Component {
 
               </div>
     
+
               <div className="right">
-                <p>feeling lucky?</p>
-                <Button text='change into fortune wheel later' colour='lightcoral'/>
+
+                <div><p style={{color:'red' }}>Click The Wheel To Spin ! </p></div>
+                <br></br>
+                
+                <motion.img 
+                  src={require('./resources/wheel.png').default}
+                  id='wheel'
+                  width='450px'
+                  height='450px'
+                  animate={{rotate: this.getRotate()}}
+                  transition={{duration: 1 ,loop: 0}}
+                  onClick = {(this.setRotate )}
+
+                  />
+
+                  {/*}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"
+                          style={{ width: "100vw", height: "80vh" }}>
+                          <g fill="pink" stroke="green" strokeWidth="10">
+                            <defs>
+                              <radialGradient id="myGradient">
+                                <stop offset="0%"   stop-color="cyan" />
+                                <stop offset="100%" stop-color="pink" />
+                              </radialGradient>
+                            </defs>
+                            <circle fill="url(#myGradient)" cx="250" cy="250" r={200} />
+                          </g>
+                          <g>
+                            
+                          </g>
+                          <g fill="#61DAFB">
+                            <circle cx="250" cy="250" r="15" />
+                          </g>
+                          <g fill="black">
+                            <circle cx="250" cy="250" r="5" />
+                          </g>
+                          <g fill="lime" stroke="purple" strokeWidth="2">
+                            <polygon points="250,70 230,30 270,30" />
+                          </g>
+                        </svg>
+                  
+                  */}
+
+
+
+
+
+
               </div>          
             </div> 
     
