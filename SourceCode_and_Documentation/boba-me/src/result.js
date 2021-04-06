@@ -8,7 +8,7 @@ class Result extends Component {
             <div className='result'>
 
                 <div className='result-banner'>
-                    <h2>Results</h2>
+                    <h2>&nbsp; Results &nbsp;</h2>
                     <div>
                         <input type="search" id="result-search" name="q" aria-label="Search through site content"></input>
                         <Button text='Search' colour='yellow'/>
@@ -33,9 +33,9 @@ class Result extends Component {
                     <div className='result-list'>
                         <div className='result-grid'>
                             <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/> 
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
+                            <Result_profile drink='Assam Black Milk Tea' img={require('./resources/cha0.png').default} price='$7.00' rating='4.5/5'/>
+                            <Result_profile drink='Lychee Tea' img={require('./resources/cha1.png').default} price='$7.00' rating='3.5/5'/>
+                            <Result_profile drink='Apple Green Tea' img={require('./resources/cha2.png').default} price='$7.00' rating='4/5'/>
                             <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
                             <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/> 
                             <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>

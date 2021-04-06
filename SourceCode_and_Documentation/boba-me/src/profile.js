@@ -5,7 +5,7 @@ class Profile extends Component {
     render() {
         return (
             <div className='profile-container' style={{ backgroundImage: `url(${bg_img})` }}>
-                <div><h2>Shop:   GongCha</h2></div>
+                <div><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shop : GongCha</h1></div>
                 <div className='left-profile'>
 
                     <div className="menu">
