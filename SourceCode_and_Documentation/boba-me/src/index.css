@@ -73,6 +73,12 @@
 
 }
 
+/* woah wasnt me 
+USED IN :
+    profile.js
+
+.profile-container{
+*/
 .profile-contianer{
     display: flex;
     align-items: center;
@@ -98,7 +104,7 @@
 }
 
 .menu{
-    padding:20px;
+    padding:50px;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -106,7 +112,7 @@
 }
 
 .topping{
-    padding:20px;
+    padding:50px;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -114,6 +120,7 @@
 }
 
 .opening{
+    padding:50px;
     display: flex;
     flex-direction: column;
     min-height: 350px;
@@ -127,13 +134,14 @@
 .infodisplay{
     padding: 20px;
     border: 5px;
+    padding-left:30px;
     border-style: solid;
     border-color: #fff;
     background-color: blanchedalmond;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     width: 90%;
     height: 90%;
 }

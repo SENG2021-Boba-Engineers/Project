@@ -65,8 +65,8 @@ class Home extends Component {
                 </div>
                 <div className='container'>
                   <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
-                  <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
-                  <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} /> 
+                  <Profile drink='perl mik tea' img={require('./resources/cha2.png')} />  
+                  <Profile drink='perl mik tea' img={require('./resources/cha0.png')} /> 
                 </div>
                 
                 <InfiniteScroll

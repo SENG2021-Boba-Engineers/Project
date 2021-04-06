@@ -8,7 +8,7 @@ class DrinkProfile extends Component {
     render() {
         return (
             <div className='profile-container' style={{ backgroundImage: `url(${bg_img})` }}>
-                <div><h2>Pearl Milk Tea</h2></div>
+                <div><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pearl Milk Tea</h1></div>
                 <div className='drinkleft-profile'>
                     <div className='drink-ingredients'>
                         <div className='drink-pic'>
