@@ -45,16 +45,16 @@ class DrinkProfile extends Component {
                 </div>
 
                 <div className='right-profile'>
+                    <h1>&nbsp;</h1>
                     <h2>This drink is sold at</h2>
                     <div className='infodisplay'>
                         <div className='shop-grid'>
                             <Profile drink='$5.00' img={require('./resources/Coco.jpg')} />  
-                            <Profile drink='$5.00' img={require('./resources/Coco.jpg')} />  
-                            <Profile drink='$5.00' img={require('./resources/Coco.jpg')} />  
-                            <Profile drink='$5.00' img={require('./resources/Coco.jpg')} />
-                            <Profile drink='$5.00' img={require('./resources/Coco.jpg')} />
-                            <Profile drink='$5.00' img={require('./resources/Coco.jpg')} />
-                            <Profile drink='$5.00' img={require('./resources/Coco.jpg')} />
+                            <Profile drink='$6.00' img={require('./resources/c1.jpg')} />  
+                            <Profile drink='$6.00' img={require('./resources/c3.png')} />  
+                            <Profile drink='$6.20' img={require('./resources/c4.webp')} />
+                            <Profile drink='$6.50' img={require('./resources/Coco.jpg')} />
+                            <Profile drink='$7.00' img={require('./resources/Coco.jpg')} />
                         </div>
                     </div>
                 </div> 

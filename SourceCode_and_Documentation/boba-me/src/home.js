@@ -34,10 +34,10 @@ class Home extends Component {
     
               <div className="left">
                 <div>
-                    <p>Get Bubblin' Now</p>
+                    <p><h1>Get Bubblin' Now</h1></p>
                 </div>
                 <div>
-                    <p >Search for a Drink or Shop</p>
+                    <p ><h3>Search for a Drink or Shop</h3></p>
                     <input type="search" id="site-search" name="q" aria-label="Search through site content"></input>
         
                     <select id="search_option">
@@ -64,9 +64,9 @@ class Home extends Component {
                   <h1>Popular Drinks</h1>                  
                 </div>
                 <div className='container'>
-                  <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
-                  <Profile drink='perl mik tea' img={require('./resources/cha2.png')} />  
-                  <Profile drink='perl mik tea' img={require('./resources/cha0.png')} /> 
+                  <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
+                  <Profile drink='Pearl Milk Tea' img={require('./resources/cha2.png')} />  
+                  <Profile drink='Pearl Milk Tea' img={require('./resources/cha0.png')} /> 
                 </div>
                 
                 <InfiniteScroll
@@ -82,9 +82,9 @@ class Home extends Component {
                   >
                     {this.state.items.map((element ,index) => (
                       <div className='container'>
-                      <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
-                      <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />  
-                      <Profile drink='perl mik tea' img={require('./resources/pearl-milk-tea.png')} />                   
+                      <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
+                      <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
+                      <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />                   
                       </div>
                     ))}
     
@@ -116,7 +116,7 @@ class Home extends Component {
                     {this.state.items.map((element ,index) => (
                       <div className='container'>
                         <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
-                        <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
+                        <Profile drink='Gong Cha' img={require('./resources/shop2.png')} />  
                         <Profile drink='Coco' img={require('./resources/Coco.jpg')} />                  
                       </div>
                     ))}
