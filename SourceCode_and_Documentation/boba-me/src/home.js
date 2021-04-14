@@ -64,14 +64,13 @@ class Home extends Component {
                         <option value="shop">Search by Shop</option>
                         <option value="drink">Search by Drink</option>
                     </select>
-                    <a href="result">
+                    <a id="search-link" href="result">
                     <Button text='Search' colour='deepskyblue'/>
                     </a>               
                 </div>
 
               </div>
     
-
               <div className="right">
 
                 <div><p style={{color:'red' }}>Click The Wheel To Spin ! </p></div>
@@ -87,7 +86,6 @@ class Home extends Component {
                   onClick = {(this.setRotate )}
 
                   />
-
                   {/*}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"
                           style={{ width: "100vw", height: "80vh" }}>
@@ -115,13 +113,7 @@ class Home extends Component {
                         </svg>
                   
                   */}
-
-
-
-
-
-
-              </div>          
+              </div>
             </div> 
     
             <div className = "bottom">
@@ -130,12 +122,15 @@ class Home extends Component {
                 <div className="container-heading">
                   <h1>Popular Drinks</h1>                  
                 </div>
+                <a href="drinkprofile">
                 <div className='container'>
                   <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
-                  <Profile drink='Pearl Milk Tea' img={require('./resources/cha2.png')} />  
-                  <Profile drink='Pearl Milk Tea' img={require('./resources/cha0.png')} /> 
+                  <Profile drink='Apple Green Tea' img={require('./resources/cha2.png')} />  
+                  <Profile drink='Assam Black Milk Tea' img={require('./resources/cha0.png')} /> 
                 </div>
+                </a>
                 
+                {/*
                 <InfiniteScroll
                     dataLength={this.state.items.length} //This is important field to render the next data
                     next={this.fetchMoreData}
@@ -156,6 +151,7 @@ class Home extends Component {
                     ))}
     
                   </InfiniteScroll>
+                  */}
                   
               </div>
     
@@ -163,12 +159,15 @@ class Home extends Component {
                 <div className="container-heading">
                   <h1>Popular Shops</h1>                  
                 </div>
+                <a href="profile">
                 <div className='container'>
-                  <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
-                  <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
-                  <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
+                  <Profile drink='Coco Randwick' img={require('./resources/Coco.jpg')} />  
+                  <Profile drink='Gong Cha Randwick' img={require('./resources/shop2.png')} />  
+                  <Profile drink='Coco Chinatown' img={require('./resources/Coco.jpg')} />  
                 </div>
+                </a>
                
+                {/*
                 <InfiniteScroll
                     dataLength={this.state.items.length} //This is important field to render the next data
                     next={this.fetchMoreData}
@@ -189,6 +188,7 @@ class Home extends Component {
                     ))}
     
                 </InfiniteScroll>
+                    */}
                  
               </div>
     

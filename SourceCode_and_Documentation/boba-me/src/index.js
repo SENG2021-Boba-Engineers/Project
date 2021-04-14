@@ -8,6 +8,8 @@ import Reward from './reward';
 import Result from './result';
 import Profile from './profile'
 import DrinkProfile from './drinkprofile'
+import ShopProfile from './profile'
+import Result2 from './shopresult'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render( 
@@ -22,6 +24,8 @@ ReactDOM.render(
         <Route path="/result" component={Result} />
         <Route path="/profile" component={Profile} />
         <Route path="/drinkprofile" component={DrinkProfile} />
+        <Route path="/shopprofile" component={ShopProfile} />
+        <Route path="/result2" component={Result2} />
     </Switch>
   </Router>, document.getElementById('root')
 );
