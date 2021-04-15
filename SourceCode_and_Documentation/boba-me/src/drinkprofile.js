@@ -3,12 +3,17 @@ import Button from './components/Button_Jing';
 import bg_img from './resources/background.jpg'
 import Profile from './components/Profile'
 import InfiniteScroll from 'react-infinite-scroll-component';
+import {motion} from 'framer-motion'
 
 class DrinkProfile extends Component {
     render() {
         return (
             <div className='profile-container' style={{ backgroundImage: `url(${bg_img})` }}>
-                <div><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pearl Milk Tea</h1></div>
+                <motion.div
+                    initial={{ opacity:1, x: -200}}
+                    animate={{ opacity:1, x: 0}}
+                    transition= {{ duration: 1 }}
+                ><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pearl Milk Tea</h1></motion.div>
                 <div className='drinkleft-profile'>
                     <div className='drink-ingredients'>
                         <div className='drink-pic'>

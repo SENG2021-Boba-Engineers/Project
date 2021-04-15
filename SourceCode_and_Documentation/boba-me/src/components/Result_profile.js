@@ -1,7 +1,18 @@
+import {motion} from 'framer-motion';
+
 const Result_profile = ({drink,img,price,rating}) => {
 
     return (
-        <div className='profile'>
+        <motion.div className='profile'
+            initial = {{rotate: -20}}
+            animate ={{ rotate: 0}}
+            transistion = {{ duration : 1.5}}
+            whileHover={{
+                scale: 1.2,
+                textShadow: "0px 0px 8px rgb(255,255,255)",
+                boxShadow: "0px 0px 8px rgb(255,255,255)"
+            }}
+        >
             <div className='profile_display_left'>
                 <p>{drink}</p>
                 <p>Rating: {rating}</p>
@@ -11,7 +22,7 @@ const Result_profile = ({drink,img,price,rating}) => {
             <div className='profile_display_right'>
                 <img src={img} style={{width:'130px', height:'150px'}}></img>
             </div>
-    </div>
+    </motion.div>
     )
 
 }

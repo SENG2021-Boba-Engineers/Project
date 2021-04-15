@@ -3,6 +3,7 @@
     width: 100%;
     background-image: url("resources/background.jpg");
     background-repeat: repeat;
+    position: absolute;
 }
 
 .left{
@@ -84,7 +85,7 @@ USED IN :
     display: flex;
     align-items: center;
     flex-direction: column;
-    height:100vh;
+    min-height: 1500px;
     background-repeat: repeat;
     background-position: center;
     
@@ -129,7 +130,11 @@ USED IN :
 }
 
 .map{
+    display: flex;
     text-align: center;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .infodisplay{
@@ -204,7 +209,7 @@ USED IN :
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-    min-height: 500px;
+    min-height: 80vh;
     opacity: 900%;
 }
 
@@ -245,7 +250,7 @@ USED IN :
 
 .profile_display_left{
     padding: 30px;
-    padding-right: 10px;
+    padding-right: 0px;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -254,7 +259,7 @@ USED IN :
 
 .profile_display_right{
     padding-top: 30px;
-    padding-right: 40px;
+    padding-right: 90px;
     display: flex;
     width: 30%;
     float: left;
@@ -307,4 +312,9 @@ USED IN :
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
+}
+
+.btn{
+    border-radius: 4px;
+    background: transparent;
 }

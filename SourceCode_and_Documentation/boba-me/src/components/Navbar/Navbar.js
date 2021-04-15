@@ -3,11 +3,16 @@ import { MenuItems } from "./MenuItems";
 import { Button } from "../Button";
 import icon from './Boba_Me_Icon.png';
 import './Navbar.css';
+import GoogleLogin from 'react-google-login';
+import {motion} from "framer-motion";
 
 // Remember to change to Boba Me"
 
 class Navbar extends Component {
-    state = { clicked: false }
+    state = { 
+        clicked: false,
+        logged_in: false
+    }
 
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked })
@@ -15,7 +20,11 @@ class Navbar extends Component {
 
     render() {
         return (
-            <nav className="NavbarItems">
+            <motion.nav className="NavbarItems"
+                initial= {{ opacity: 0}}
+                animate= {{ opacity: 1}}
+                transition= {{ duration: 0.65}}
+            >
                 <a className="logo-redirect" href="home">
                 <h1 className="navbar-logo">
                     Boba Me<img src={icon}/>
@@ -35,10 +44,19 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
+                <GoogleLogin
+                    clientId="779473173245-07oiunmq33n9f0mresc06u4h42543183.apps.googleusercontent.com"
+                    buttonText="Login"
+                    onSuccess={ (res) => console.log(res.profileObj)}
+                    onFailure={ (res) => console.log(res.profileObj)}
+                    cookiePolicy={"single_host_origin"}
+                />
                 <a href="reward">
                   <Button>My Rewards</Button>
                 </a>
-            </nav>
+
+
+            </motion.nav>
         )
     }
 }

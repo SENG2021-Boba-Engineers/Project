@@ -1,17 +1,21 @@
-import {Component,Fragment} from 'react';
+import {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Header from './components/Header'
 import Button from './components/Button_Jing'
 import Profile from './components/Profile'
 import {motion} from 'framer-motion'
-
+import Particles from 'react-particles-js';
+import particlesConfig from './config/particle_config'
+import './particles.css'
+import {Modal} from './components/Modal'
 
 class Home extends Component {
   state = {
     items: Array.from({ length: 20 }),
     hasMore: true,
-    rotate: 0
-
+    rotate: 0,
+    showModal: false,
+    setShowModal: false
   };
 
   getRotate = () => {
@@ -30,7 +34,21 @@ class Home extends Component {
     })
   }
 
+  
 
+  openModal = () => {
+    if(this.state.showModal === false){
+      this.setState({
+        showModal: true
+      })
+    }else{
+      this.setState({
+        showModal: false
+      })      
+    }
+
+
+  }
 
   fetchMoreData = () => {
     // a fake async api call like which sends
@@ -48,44 +66,79 @@ class Home extends Component {
 
     render() {
         return (
-            <div id='body' className="body">
-            
+          <div id='body' className="body" >
+            <Particles style={{position: 'absolute'}} params={particlesConfig} ></Particles>
             <div className="landing">
     
               <div className="left">
+                <motion.div
+                  initial= {{ opacity: 0, x: -150}}
+                  animate= {{ opacity: 1, x: 0}}
+                  transition= {{ duration: 1.75 }}
+                >
+                    <h1 style={{fontSize: "50px", color: "grey"}} >Get Bubblin' Now</h1>
+                </motion.div>
+                <br></br>
                 <div>
-                    <p><h1>Get Bubblin' Now</h1></p>
-                </div>
-                <div>
-                    <p ><h3>Search for a Drink or Shop</h3></p>
-                    <input type="search" id="site-search" name="q" aria-label="Search through site content"></input>
-        
+                    <p style={{fontSize: "20px", color: "grey"}} ><motion.h3
+                      initial= {{ opacity: 0, x: 150}}
+                      animate= {{ opacity: 1, x: 0}}
+                      transition= {{ duration: 1.75 }}                    
+                    >Search for a Drink or Shop</motion.h3></p>
+
+                    <br></br>
+
+                    <input type="search" id="site-search" name="q" style={{height: '25x', width: '300px'}} aria-label="Search through site content"></input>
+                    
                     <select id="search_option">
                         <option value="shop">Search by Shop</option>
                         <option value="drink">Search by Drink</option>
                     </select>
                     <a id="search-link" href="result">
+                    <div><br></br></div>
                     <Button text='Search' colour='deepskyblue'/>
-                    </a>               
+                    </a> 
+                    <img 
+                      style={{
+                        position:'absolute',
+                        top:'420px',
+                        left:'90px'
+                      }}
+                      src={require('./resources/bobacat.gif').default}
+                    ></img>              
                 </div>
 
               </div>
     
               <div className="right">
 
-                <div><p style={{color:'red' }}>Click The Wheel To Spin ! </p></div>
+                <motion.div
+                  //initial={{ scale: 1}}
+                  animate={{ scale: 1.4}}
+                  transition={{
+                    duration: 3,
+                    loop: Infinity,
+                    repeatDelay: 1,
+                    yoyo: Infinity                 
+                  }}
+                ><p style={{fontSize: '20px', color:'red' }}>Click The Wheel To Spin ! </p></motion.div>
                 <br></br>
                 
                 <motion.img 
-                  src={require('./resources/wheel.png').default}
+                  src={require('./resources/wheel1.png').default}
                   id='wheel'
-                  width='450px'
-                  height='450px'
+                  width='470px'
+                  height='470px'
                   animate={{rotate: this.getRotate()}}
                   transition={{duration: 1 ,loop: 0}}
-                  onClick = {(this.setRotate )}
-
+                  onClick = {() => {
+                    this.setRotate(); 
+                    setTimeout(this.openModal,1200);
+                    //reset the wheel for next spin
+                    setTimeout(this.resetRotate,2000);
+                    }}                
                   />
+                  <Modal showModal={this.state.showModal} setShowModal={this.openModal}/>
                   {/*}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"
                           style={{ width: "100vw", height: "80vh" }}>
@@ -194,8 +247,9 @@ class Home extends Component {
     
             
             </div>
-    
+            
           </div>
+          
         );
     }
 }
