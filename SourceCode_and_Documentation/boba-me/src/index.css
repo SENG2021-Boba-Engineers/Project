@@ -155,8 +155,11 @@ USED IN :
 .reward{
     display: flex;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     min-height: 1500px;
+    background-image: url("resources/background.jpg");
+    background-repeat: repeat;
 }
 
 .left-reward{
@@ -254,14 +257,14 @@ USED IN :
     display: flex;
     flex-direction: column;
     text-align: left;
-    width: 70%
+    width: 60%
 }
 
 .profile_display_right{
     padding-top: 30px;
     padding-right: 90px;
     display: flex;
-    width: 30%;
+    width: 40%;
     float: left;
 }
 
@@ -291,21 +294,12 @@ USED IN :
 }
 
 .rating-colour{
-    background: aqua;
+    background: rgb(223, 109, 65);
     border-radius: 10px;
     width: 375px;
-}
-
-.star{
-    background: gold;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    display: inline-block;
-    height: 75px;
-    width: 75px;
-}
-
-.rating-button{
-    padding-left: 145px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .shop-grid{

@@ -7,7 +7,7 @@ class Reward extends Component {
         return (
             <div className='reward'>
                 <div><h2>My Rewards</h2></div>
-
+                <br></br>
                 <motion.div className='left-reward'
                     initial= {{ opacity: 0, x: -150}}
                     animate= {{ opacity: 1, x: 0}}
@@ -18,7 +18,7 @@ class Reward extends Component {
                         <p>1/2 Price 2nd Drink at Gong Cha</p>
                         <p>Free Birthday Drink at Coco</p>
                         <p>Buy 2 get 1 free at Sharetea</p>
-                        <Button colour='yellow' text='Redeem'/>
+                        <Button colour='Orange' text='Redeem'/>
                     </div>
                 
                 </motion.div>

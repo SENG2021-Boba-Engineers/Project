@@ -12,7 +12,7 @@ const Button = ({text,colour,event}) => {
                 boxShadow: "0px 0px 8px rgb(255,255,255)"
             }}
         >
-            {text}
+            <p style={{fontFamily:'Georgia', fontSize: '20px', color: "white"}} >{text}</p>
         </motion.button>
     )
 

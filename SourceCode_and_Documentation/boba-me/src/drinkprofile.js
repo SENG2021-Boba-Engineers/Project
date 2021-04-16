@@ -4,6 +4,8 @@ import bg_img from './resources/background.jpg'
 import Profile from './components/Profile'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {motion} from 'framer-motion'
+import StarRating from './components/StarRating'
+
 
 class DrinkProfile extends Component {
     render() {
@@ -37,14 +39,14 @@ class DrinkProfile extends Component {
                     </div>
                     <div className='rating'>
                         <div className='rating-colour'>
+                            <StarRating  />
+                            
+                            {/*
                             <div class="star"></div>
                             <div class="star"></div>
                             <div class="star"></div>
                             <div class="star"></div>
-                            <div class="star"></div>
-                        </div>
-                        <div className='rating-button'>
-                            <Button text="Add Rating"></Button>
+                            <div class="star"></div>*/}
                         </div>
                     </div>
                 </div>

@@ -8,15 +8,17 @@ const Result_profile = ({drink,img,price,rating}) => {
             animate ={{ rotate: 0}}
             transistion = {{ duration : 1.5}}
             whileHover={{
-                scale: 1.2,
-                textShadow: "0px 0px 8px rgb(255,255,255)",
-                boxShadow: "0px 0px 8px rgb(255,255,255)"
+                rotate: [5,-5,5,-5,0],
+                duration: 3,
+                yoyo: Infinity
             }}
         >
             <div className='profile_display_left'>
-                <p>{drink}</p>
-                <p>Rating: {rating}</p>
-                <p>Price: {price}</p>
+                <p style={{fontFamily:'Georgia', fontSize: "20px", color: "Black"}} >{drink}</p>
+                <br></br>
+                <p style={{fontFamily:'Georgia', fontSize: "20px", color: "Black"}}>Rating: {rating}</p>
+                <br></br>
+                <p style={{fontFamily:'Georgia', fontSize: "20px", color: "Black"}}>Price: {price}</p>
             </div>
 
             <div className='profile_display_right'>

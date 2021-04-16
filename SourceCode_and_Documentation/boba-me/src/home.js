@@ -80,7 +80,7 @@ class Home extends Component {
                 </motion.div>
                 <br></br>
                 <div>
-                    <p style={{fontSize: "20px", color: "grey"}} ><motion.h3
+                    <p style={{fontFamily:'Georgia', fontSize: "20px", color: "grey"}} ><motion.h3
                       initial= {{ opacity: 0, x: 150}}
                       animate= {{ opacity: 1, x: 0}}
                       transition= {{ duration: 1.75 }}                    

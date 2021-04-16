@@ -17,7 +17,7 @@ class Result extends Component {
                     <h2>&nbsp; Results &nbsp;</h2>
                     <div>
                         <input type="search" id="result-search" name="q" aria-label="Search through site content"></input>
-                        <Button text='Search' colour='yellow'/>
+                        <Button text='Search' colour='deepskyblue'/>
                     </div>
                     
                 </motion.div>
