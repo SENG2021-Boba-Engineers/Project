@@ -7,7 +7,6 @@ function App() {
  return (
     // Constant Across Whole App
     <Navbar />
-    
   );
 
 }

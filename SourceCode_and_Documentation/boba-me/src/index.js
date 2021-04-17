@@ -9,8 +9,12 @@ import Result from './result';
 import Profile from './profile'
 import DrinkProfile from './drinkprofile'
 import ShopProfile from './profile'
-import Result2 from './shopresult'
+import ShopResult from './shopresult'
 import reportWebVitals from './reportWebVitals';
+
+/*
+Use index as router
+*/
 
 ReactDOM.render( 
   <Router>
@@ -25,7 +29,7 @@ ReactDOM.render(
         <Route path="/profile" component={Profile} />
         <Route path="/drinkprofile" component={DrinkProfile} />
         <Route path="/shopprofile" component={ShopProfile} />
-        <Route path="/result2" component={Result2} />
+        <Route path="/shopsearch" component={ShopResult} />
     </Switch>
   </Router>, document.getElementById('root')
 );
