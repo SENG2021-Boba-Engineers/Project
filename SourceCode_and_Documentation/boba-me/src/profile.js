@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import bg_img from './resources/background.jpg'
-import { Map, GoogleApiWrapper } from 'google-maps-react';
 import {motion} from 'framer-motion'
 
 class Profile extends Component {
@@ -13,7 +12,7 @@ class Profile extends Component {
                     initial={{ opacity:1, x: -200}}
                     animate={{ opacity:1, x: 0}}
                     transition= {{ duration: 1 }}
-                ><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shop : GongCha</h1></motion.div>
+                ><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shop: Gong Cha Randwick</h1></motion.div>
 
                 <div className='left-profile'>
 
@@ -71,12 +70,15 @@ class Profile extends Component {
                         ></img>
                         */}
                         <div>
-                            <Map
-                            google={this.props.google}
-                            zoom={8}
-                            style={mapStyles}
-                            initialCenter={{ lat: -33.871646364793904, lng: 151.20527111910204}}
-                            
+                        <iframe
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAupWuHcLkDh1VdlAwfNNttBOmOrJlyDXo&q=Gong+Cha,Randwick+Sydney+Australia"
+                            width="550"
+                            height="412.5"
+                            frameBorder="0"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            aria-hidden="false"
+                            tabIndex="0"
                             />
                         </div>
 
@@ -88,11 +90,5 @@ class Profile extends Component {
         );
     }
 }
-const mapStyles = {
-    width: '60vh',
-    height: '40vh',
-};
   
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyAP1P25WHn-ujkdk910ISDMot3OV4K_GEY'
-})(Profile);
+export default Profile;
