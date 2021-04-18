@@ -31,6 +31,7 @@ connection = create_connection()
 # - update rating
 
 def execute_query(connection, query):
+    connection.rollback()
     connection.autocommit = True
     cursor = connection.cursor()
     try:
@@ -56,12 +57,19 @@ def execute_read_query(connection, query):
     except OperationalError as e:
         print(f"The error '{e}' occurred")
 
+
+
+select_users = "SELECT * FROM drink"
+out = execute_read_query(connection, select_users)
+print(out)
+
+import random
 # EXAMPLE : update existing data
-update_post_description = """
+update_post_description = f"""
 UPDATE
   drink
 SET
-  rating = 4.5
+  rating = {random.randrange(1,5)}
 WHERE
   id = 1
 """
@@ -69,6 +77,5 @@ execute_query(connection, update_post_description)
 
 # EXAMPLE : print out all drinks in database
 select_users = "SELECT * FROM drink"
-users = execute_read_query(connection, select_users)
-
-print(users)
+out = execute_read_query(connection, select_users)
+print(out)
