@@ -8,6 +8,7 @@ from json import dumps
 from flask import Flask, request, send_from_directory
 from flask_cors import CORS
 from error import InputError
+import db
 
 def defaultHandler(err):
     response = err.get_response()
@@ -36,6 +37,18 @@ def echo():
         'data': data
     })
 
+# Shop Times
+@APP.route("/get_shop_times", methods=['GET'])
+def get_shop_times():
+    data = request.args.get('shop_name')
+    sql_query = f"""select name from shop
+    where name = '{data}'"""
+    conn = db.create_connection()
+    output = db.execute_read_query(conn, sql_query)
+    return dumps({
+        'data': str(output)
+    })
+    
 # Porting
 if __name__ == "__main__":
     APP.run(debug = True, port=50000)
