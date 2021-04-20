@@ -9,6 +9,7 @@ import particlesConfig from './config/particle_config'
 import './particles.css'
 import {Modal} from './components/Modal'
 import axios from 'axios';
+
 class Home extends Component {
   state = {
     items: Array.from({ length: 20 }),
