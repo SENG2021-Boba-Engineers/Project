@@ -86,7 +86,7 @@ class Result extends Component {
                 items.push(
                     <div>
                         <Link style={{ textDecoration: 'none' }} to={"/profile/"+this.state.shop_names[index]} >                   
-                        <Result_profile drink={this.state.shop_names[index]} img={require('./resources/coco.jpg').default} price="0" />
+                        <Result_profile drink={this.state.shop_names[index]} img={require('./resources/coco_logo.webp').default} price="0" />
                         </Link>
                     </div>
                 )
