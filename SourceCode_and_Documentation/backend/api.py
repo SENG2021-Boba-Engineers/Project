@@ -341,7 +341,7 @@ def drinks_sold():
     for row in output:
         drink_sold_where_dict['shop_name'].append(f"{row[0]} {row[1]}")
         drink_sold_where_dict['prices'].append(str(row[2]).format('.2f'))
-        drink_sold_where['pictures'].append(row[3])
+        drink_sold_where_dict['pictures'].append(row[3])
     conn.close()
     return dumps(drink_sold_where_dict)
 
