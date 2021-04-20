@@ -307,14 +307,12 @@ def get_drink_info():
     """
     # returns none if no input
     drink_id = request.args.get('drink_id')
-
     # query the database for drink from drink_id
     sql_query = f"""select * from drink where id = {drink_id}"""
     conn = db.create_connection()
     output = db.execute_read_query(conn, sql_query)[0]
     conn.close()
     return dumps({
-        'id'       :output[0],
         'name'     :output[1],
         'rating'   :output[2],
         'drink_img':output[3],
