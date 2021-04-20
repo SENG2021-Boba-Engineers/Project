@@ -150,7 +150,7 @@ def search_drinks():
     for row in output:
         drinks_dict['drink_ids'].append(row[0])
         drinks_dict['drink_names'].append(row[1])
-        drinks_dict['drink_ratings'].append(row[2])
+        drinks_dict['drink_ratings'].append(row[3])
     conn.close()
     return dumps(drinks_dict)
 
