@@ -335,7 +335,7 @@ def drinks_sold():
     output = db.execute_read_query(conn, sql_query)
     drink_sold_where_dict = {
         'shop_name': [],
-        'prices': []
+        'prices': [],
         'pictures': []
     }
     for row in output:
