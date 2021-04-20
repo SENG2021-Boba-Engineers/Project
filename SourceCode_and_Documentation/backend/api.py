@@ -176,10 +176,12 @@ def search_shops():
     shops_dict = {
         'shop_ids' : [],
         'shop_names' : [],
+        'shop_pics': []
     }
     for row in output:
         shops_dict['shop_ids'].append(row[0])
         shops_dict['shop_names'].append(f"{row[1]} {row[2]}")
+        shops_dict['shop_pics'].append(row[4])
     conn.close()
     return dumps(shops_dict)
 
