@@ -135,7 +135,7 @@ def search_drinks():
     search_term = request.args.get('search_term')
     if search_term:
         sql_query = f"""select * from drink
-        where name like '%{search_term}%'
+        where name ilike '%{search_term}%'
         """
     else:
         sql_query = f"""select * from drink
@@ -164,9 +164,9 @@ def search_shops():
     Output: { 'shop_name': [], 'shop_town' = [], 'shop_city' = [], 'shop_country': []}
     """
     search_term = request.args.get('search_term')
-    if search_term is None:
+    if search_term:
         sql_query = f"""select * from shop
-        where name like '%{search_term}%'
+        where shop.name ilike '%{search_term}%'
         """
     else:
         sql_query = f"""select * from shop
