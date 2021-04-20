@@ -315,10 +315,10 @@ def get_drink_info():
     output = db.execute_read_query(conn, sql_query)[0]
     conn.close()
     return dumps({
-        'id'     :output[1],
-        'name':output[2],
-        'pictures'   :output[3],
-        'rating': output[4]
+        'id'     :output[0],
+        'name':output[1],
+        'pictures'   :output[2],
+        'rating': output[3]
     })
 
 @APP.route("/api/drink_sold_where", methods=['GET'])
