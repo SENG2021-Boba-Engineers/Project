@@ -9,7 +9,7 @@ then
     cd backend
     pip3 install virtualenv 2> /dev/null
     virtualenv venv
-    source virtualenv/bin/activate
+    source venv/bin/activate
     pip install -r requirements.txt 2> /dev/null
     deactivate
 else

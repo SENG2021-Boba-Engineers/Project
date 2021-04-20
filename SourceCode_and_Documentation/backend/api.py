@@ -62,7 +62,6 @@ def get_rewards():
         'rewards': rewards 
     })
 
-
 @APP.route("/api/logout", methods=['POST'])
 def logout():
     """
@@ -128,15 +127,19 @@ def login():
 def search_drinks():
     """
     Endpoint: 'api/search_drinks'
-    EXAMPLE Parameter http://127.0.0.1:50000/api/search_drinks?search_term=""
+    EXAMPLE Parameter http://127.0.0.1:5000/api/api/search_drinks?search_term=""
     Verb: GET
     Parameter: search_term
     Output: { 'drink_id': [], 'drink_name' = [], 'drink_rating' = []}
     """
     search_term = request.args.get('search_term')
-    sql_query = f"""select * from drink
-    where name like '%{search_term}%'
-    """
+    if search_term:
+        sql_query = f"""select * from drink
+        where name ilike '%{search_term}%'
+        """
+    else:
+        sql_query = f"""select * from drink
+        """
     conn = db.create_connection()
     output = db.execute_read_query(conn, sql_query)
     drinks_dict = {
@@ -155,24 +158,30 @@ def search_drinks():
 def search_shops():
     """
     Endpoint: '/search_shops'
-    EXAMPLE Parameter http://127.0.0.1:50000/api/search_shop?search_term=""
+    EXAMPLE Parameter http://127.0.0.1:5000/api/api/search_shop?search_term=""
     Verb: GET
     Parameter: search_term
     Output: { 'shop_name': [], 'shop_town' = [], 'shop_city' = [], 'shop_country': []}
     """
     search_term = request.args.get('search_term')
-    sql_query = f"""select * from shop
-    where name like '%{search_term}%'
-    """
+    if search_term:
+        sql_query = f"""select * from shop
+        where shop.name ilike '%{search_term}%'
+        """
+    else:
+        sql_query = f"""select * from shop
+        """
     conn = db.create_connection()
     output = db.execute_read_query(conn, sql_query)
     shops_dict = {
         'shop_ids' : [],
         'shop_names' : [],
+        'shop_pics': []
     }
     for row in output:
         shops_dict['shop_ids'].append(row[0])
         shops_dict['shop_names'].append(f"{row[1]} {row[2]}")
+        shops_dict['shop_pics'].append(row[4])
     conn.close()
     return dumps(shops_dict)
 
@@ -180,13 +189,13 @@ def search_shops():
 def get_shop_menu():
     """
     Endpoint: '/get_shop_times'
-    EXAMPLE Parameter http://127.0.0.1:50000/get_shop_menu?shop_id-=1
+    EXAMPLE Parameter http://127.0.0.1:5000/api/get_shop_menu?shop_id-=1
     Verb: GET
     Parameter: shop_id
     Output: { 'drinks': [], 'price' = []}
     """
     shop_id = request.args.get('shop_id')
-    sql_query = f"""select drink.name, drink.price from menu
+    sql_query = f"""select drink.name, menu.price from menu
     inner join drink on drink.id = menu.drink_id
     where menu.shop_id = {shop_id}
     """
@@ -198,7 +207,7 @@ def get_shop_menu():
     }
     for row in output:
         drinks_dict['drinks'].append(row[0])
-        drinks_dict['prices'].append(row[1])
+        drinks_dict['prices'].append(str(row[1]).format('.2f'))
     conn.close()
     return dumps(drinks_dict)
 
@@ -206,7 +215,7 @@ def get_shop_menu():
 def get_toppings():
     """
     Endpoint: '/get_toppings'
-    EXAMPLE Parameter http://127.0.0.1:50000/get_toppings?shop_id-=1
+    EXAMPLE Parameter http://127.0.0.1:5000/api/get_toppings?shop_id-=1
     Verb: GET
     Parameter: shop_id
     Output: { 'topping': [], 'price':[] }
@@ -223,7 +232,7 @@ def get_toppings():
     }
     for row in output:
         topping_dict['topping'].append(row[1])
-        topping_dict['price'].append(row[2])
+        topping_dict['price'].append(str(row[2]).format('.2f'))
     conn.close()
     return dumps(topping_dict)
 
@@ -231,7 +240,7 @@ def get_toppings():
 def get_shop_times():
     """
     Endpoint: '/get_shop_times'
-    EXAMPLE Parameter http://127.0.0.1:50000/get_shop_times?shop_id-=1
+    EXAMPLE Parameter http://127.0.0.1:5000/api/get_shop_times?shop_id-=1
     Verb: GET
     Parameter: shop_id
     Output: { 'days_of_week': [], 'shop_open' = [], 'shop_close' = []}
@@ -257,7 +266,7 @@ def get_shop_times():
 def update_ratings():
     """
     Endpoint: '/update_ratings'
-    EXAMPLE Parameter http://127.0.0.1:50000/update_ratings?rating=3.0&drink_id=1
+    EXAMPLE Parameter http://127.0.0.1:5000/api/update_ratings?rating=3.0&drink_id=1
     Verb: POST
     Parameter: rating, drink_id in json dict
     Output: { 'old_rating' : curr_rating, 'new_rating' : new_rating}
@@ -286,18 +295,18 @@ def update_ratings():
         'new_rating': new_rating,
         # 'output' : out,
     })
-    
+
 @APP.route("/api/get_drink_info", methods=['GET'])
 def get_drink_info():
     """
     Endpoint: '/get_drink_info'
-    EXAMPLE Parameter http://127.0.0.1:50000/drink_id=1
+    EXAMPLE Parameter http://127.0.0.1:5000/api/get_drink_info?drink_id=1
     Verb: GET
     Parameter: drink_id
     Output: { 'id' : number, 'name' : string, 'rating' : float, 'drink_img' : string}
     """
     # returns none if no input
-    drink_id = request.args.get('drink_id', None)
+    drink_id = request.args.get('drink_id')
 
     # query the database for drink from drink_id
     sql_query = f"""select * from drink where id = {drink_id}"""
@@ -310,6 +319,52 @@ def get_drink_info():
         'rating'   :output[2],
         'drink_img':output[3],
     })
+
+@APP.route("/api/drink_sold_where", methods=['GET'])
+def drinks_sold():
+    """
+    Endpoint: '/drinks_sold'
+    EXAMPLE Parameter http://127.0.0.1:5000/api/drink_sold_where?drink_id=1
+    Verb: GET
+    Parameter: drink_id
+    Output: { 'shop_name' : [], 'price' : [] }
+    """
+    drink_id = request.args.get('drink_id')
+    sql_query = f"""select shop.name, shop.town, menu.price from menu
+    inner join shop on menu.shop_id = shop.id
+    where menu.drink_id = {drink_id}"""
+    conn = db.create_connection()
+    output = db.execute_read_query(conn, sql_query)
+    drink_sold_where_dict = {
+        'shop_name': [],
+        'prices': []
+    }
+    for row in output:
+        drink_sold_where_dict['shop_name'].append(f"{row[0]} {row[1]}")
+        drink_sold_where_dict['prices'].append(str(row[2]).format('.2f'))
+    conn.close()
+    return dumps(drink_sold_where_dict)
+
+@APP.route("/api/get_ingredients", methods=['GET'])
+def get_ingredients():
+    """
+    Endpoint: '/get_drink_info'
+    EXAMPLE Parameter http://127.0.0.1:5000/api/get_ingredients?drink_id=1
+    Verb: GET
+    Parameter: drink_id
+    Output: { 'ingredients' : []}
+    """
+    drink_id = request.args.get('drink_id')
+    sql_query = f"""select * from drink_ingredients where drink_ingredients.drink_id = {drink_id}"""
+    conn = db.create_connection()
+    output = db.execute_read_query(conn, sql_query)
+    ingredients_dict = {
+        'ingredients': []
+    }
+    for row in output:
+        ingredients_dict['ingredients'].append(row[1])
+    conn.close()
+    return dumps(ingredients_dict)
 
 # Porting
 if __name__ == "__main__":
