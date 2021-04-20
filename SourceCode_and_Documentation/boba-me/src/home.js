@@ -17,7 +17,7 @@ class Home extends Component {
     showModal: false,
     setShowModal: false,
     search_for: "",
-    search_option: ""
+    search_option: "shop"
   };
 
   getRotate = () => {
