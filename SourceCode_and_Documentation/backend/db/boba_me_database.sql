@@ -37,6 +37,11 @@ CREATE TABLE drink (
     rating integer
 );
 
+CREATE TABLE drink_ingredients (
+    drink_id integer NOT NULL,
+    ingredient character varying(80) NOT NULL
+);
+
 CREATE TABLE account (
     user_token character varying(80) UNIQUE NOT NULL,
     name character varying(80) NOT NULL,
@@ -102,3 +107,28 @@ INSERT INTO shop_opening_times VALUES (1, 3, '9:00 AM', '10:00 PM');
 INSERT INTO shop_opening_times VALUES (1, 4, '9:00 AM', '10:00 PM');
 INSERT INTO shop_opening_times VALUES (1, 5, '9:00 AM', '10:00 PM');
 INSERT INTO shop_opening_times VALUES (1, 6, '9:00 AM', '10:00 PM');
+
+-- Insert into drink ingredients
+INSERT INTO drink_ingredients VALUES (0, 'Milk');
+INSERT INTO drink_ingredients VALUES (0, 'Caffeine');
+INSERT INTO drink_ingredients VALUES (0, 'Egg-free');
+INSERT INTO drink_ingredients VALUES (0, 'Gluten-free');
+INSERT INTO drink_ingredients VALUES (0, 'Gelatin-free');
+
+INSERT INTO drink_ingredients VALUES (1, 'Milk');
+INSERT INTO drink_ingredients VALUES (1, 'Caffeine');
+INSERT INTO drink_ingredients VALUES (1, 'Egg-free');
+INSERT INTO drink_ingredients VALUES (1, 'Gluten-free');
+INSERT INTO drink_ingredients VALUES (1, 'Gelatin-free');
+
+INSERT INTO drink_ingredients VALUES (2, 'Milk');
+INSERT INTO drink_ingredients VALUES (2, 'Caffeine');
+INSERT INTO drink_ingredients VALUES (2, 'Egg-free');
+INSERT INTO drink_ingredients VALUES (2, 'Gluten-free');
+INSERT INTO drink_ingredients VALUES (2, 'Gelatin-free');
+
+INSERT INTO drink_ingredients VALUES (3, 'Milk');
+INSERT INTO drink_ingredients VALUES (3, 'Caffeine');
+INSERT INTO drink_ingredients VALUES (3, 'Egg-free');
+INSERT INTO drink_ingredients VALUES (3, 'Gluten-free');
+INSERT INTO drink_ingredients VALUES (3, 'Gelatin-free');
