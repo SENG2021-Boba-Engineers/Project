@@ -5,6 +5,7 @@ import icon from './Boba_Me_Icon.png';
 import './Navbar.css';
 import GoogleLogin from 'react-google-login';
 import {motion} from "framer-motion";
+import {Link} from 'react-router-dom'
 
 // Remember to change to Boba Me"
 
@@ -25,11 +26,11 @@ class Navbar extends Component {
                 animate= {{ opacity: 1}}
                 transition= {{ duration: 0.65}}
             >
-                <a className="logo-redirect" href="home">
+                <Link className="logo-redirect" to="/home">
                 <h1 className="navbar-logo">
                     Boba Me<img src={icon}/>
                 </h1>
-                </a>
+                </Link>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>

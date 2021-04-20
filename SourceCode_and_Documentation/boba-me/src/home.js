@@ -3,19 +3,21 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import Header from './components/Header'
 import Button from './components/Button_Jing'
 import Profile from './components/Profile'
-import {motion} from 'framer-motion'
+import {domAnimation, motion} from 'framer-motion'
 import Particles from 'react-particles-js';
 import particlesConfig from './config/particle_config'
 import './particles.css'
 import {Modal} from './components/Modal'
-
+import axios from 'axios';
 class Home extends Component {
   state = {
     items: Array.from({ length: 20 }),
     hasMore: true,
     rotate: 0,
     showModal: false,
-    setShowModal: false
+    setShowModal: false,
+    search_for: "",
+    search_option: ""
   };
 
   getRotate = () => {
@@ -34,6 +36,7 @@ class Home extends Component {
     })
   }
 
+
   
 
   openModal = () => {
@@ -49,6 +52,15 @@ class Home extends Component {
 
 
   }
+
+  Search_drink = () => {
+    console.log(this.state.search_for)
+    axios.get(`http://127.0.0.1:5000/api/search_drinks`, { params: { search_term: 'Pearl Milk Tea' } })
+      .then((response) => {
+        console.log(response)
+      })
+  }
+
 
   fetchMoreData = () => {
     // a fake async api call like which sends
@@ -69,7 +81,7 @@ class Home extends Component {
           <div id='body' className="body" >
             <Particles style={{position: 'absolute'}} params={particlesConfig} ></Particles>
             <div className="landing">
-    
+
               <div className="left">
                 <motion.div
                   initial= {{ opacity: 0, x: -150}}
@@ -88,15 +100,15 @@ class Home extends Component {
 
                     <br></br>
 
-                    <input type="search" id="site-search" name="q" style={{height: '25x', width: '300px'}} aria-label="Search through site content"></input>
+                    <input type="search" onChange={event => (this.setState({search_for: event.target.value}))} style={{height: '25x', width: '300px'}} aria-label="Search through site content"></input>
                     
-                    <select id="search_option">
-                        <option value="shop">Search by Shop</option>
+                    <select id="search_option" onChange={event => (this.setState({search_option: event.target.value}, console.log(event.target.value)))}>
+                        <option value="shop" >Search by Shop</option>
                         <option value="drink">Search by Drink</option>
                     </select>
-                    <a id="search-link" href="result">
+                    <a id="search-link" href={"result/"+this.state.search_option + "/" + this.state.search_for}>
                     <div><br></br></div>
-                    <Button text='Search' colour='deepskyblue'/>
+                    <Button text='Search' colour='deepskyblue' />
                     </a> 
                     <img 
                       style={{
@@ -118,7 +130,7 @@ class Home extends Component {
                   transition={{
                     duration: 3,
                     loop: Infinity,
-                    repeatDelay: 1,
+                    repeatDelay: 0.2,
                     yoyo: Infinity                 
                   }}
                 ><p style={{fontSize: '20px', color:'red' }}>Click The Wheel To Spin ! </p></motion.div>
@@ -139,33 +151,7 @@ class Home extends Component {
                     }}                
                   />
                   <Modal showModal={this.state.showModal} setShowModal={this.openModal}/>
-                  {/*}
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"
-                          style={{ width: "100vw", height: "80vh" }}>
-                          <g fill="pink" stroke="green" strokeWidth="10">
-                            <defs>
-                              <radialGradient id="myGradient">
-                                <stop offset="0%"   stop-color="cyan" />
-                                <stop offset="100%" stop-color="pink" />
-                              </radialGradient>
-                            </defs>
-                            <circle fill="url(#myGradient)" cx="250" cy="250" r={200} />
-                          </g>
-                          <g>
-                            
-                          </g>
-                          <g fill="#61DAFB">
-                            <circle cx="250" cy="250" r="15" />
-                          </g>
-                          <g fill="black">
-                            <circle cx="250" cy="250" r="5" />
-                          </g>
-                          <g fill="lime" stroke="purple" strokeWidth="2">
-                            <polygon points="250,70 230,30 270,30" />
-                          </g>
-                        </svg>
-                  
-                  */}
+
               </div>
             </div> 
     
@@ -175,7 +161,7 @@ class Home extends Component {
                 <div className="container-heading">
                   <h1>Popular Drinks</h1>                  
                 </div>
-                <a href="drinkprofile">
+                <a  style={{ textDecoration: 'none' }} href="drinkprofile">
                 <div className='container'>
                   <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
                   <Profile drink='Apple Green Tea' img={require('./resources/cha2.png')} />  
@@ -212,7 +198,7 @@ class Home extends Component {
                 <div className="container-heading">
                   <h1>Popular Shops</h1>                  
                 </div>
-                <a href="profile">
+                <a  style={{ textDecoration: 'none' }} href="profile">
                 <div className='container'>
                   <Profile drink='Coco Randwick' img={require('./resources/Coco.jpg')} />  
                   <Profile drink='Gong Cha Randwick' img={require('./resources/shop2.png')} />  

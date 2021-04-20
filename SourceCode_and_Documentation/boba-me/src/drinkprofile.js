@@ -5,10 +5,38 @@ import Profile from './components/Profile'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {motion} from 'framer-motion'
 import StarRating from './components/StarRating'
-
+import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 class DrinkProfile extends Component {
+    _isMounted = true;
+    state={
+        name : "",
+        rating : "",
+        img : "",
+        shops : []
+    }
+
+    Search(drink){
+
+        console.log(drink)
+        axios.get(`http://127.0.0.1:50000/get_drink_info` , {params: {drink_id : drink}}).then(res => {
+            console.log(res.data)
+            if(this._isMounted){
+                this.setState({
+                    name: res.data.name,
+                    rating: res.data.rating,
+                    img: res.data.drink_img
+                })
+            }
+            this._isMounted = false;
+        })
+    }
+
+
     render() {
+        this.Search(this.props.match.params.drink)
+        console.log(this.state)
         return (
             <div className='profile-container' style={{ backgroundImage: `url(${bg_img})` }}>
                 <motion.div
@@ -40,13 +68,6 @@ class DrinkProfile extends Component {
                     <div className='rating'>
                         <div className='rating-colour'>
                             <StarRating  />
-                            
-                            {/*
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>*/}
                         </div>
                     </div>
                 </div>

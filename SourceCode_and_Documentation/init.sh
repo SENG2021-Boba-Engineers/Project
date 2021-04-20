@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Assumes python3 and npm installed on unix system
 # This is to test from the home
@@ -14,7 +14,7 @@ then
     deactivate
 else
     cd backend
-    source venv/bin/activate
+    source virtualenv/bin/activate
     pip install -r requirements.txt 2> /dev/null
     deactivate
 fi
