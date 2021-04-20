@@ -313,8 +313,8 @@ def get_drink_info():
     output = db.execute_read_query(conn, sql_query)[0]
     conn.close()
     return dumps({
-        'name'     :output[1],
-        'drink_img':output[2],
+        'id'     :output[1],
+        'name':output[2],
         'pictures'   :output[3],
         'rating': output[4]
 
