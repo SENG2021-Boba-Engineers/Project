@@ -200,9 +200,9 @@ class Home extends Component {
                 </div>
                 <a  style={{ textDecoration: 'none' }} href="profile">
                 <div className='container'>
-                  <Profile drink='Coco Randwick' img={require('./resources/Coco.jpg')} />  
+                  <Profile drink='Coco Randwick' img={require('./resources/coco.jpg')} />  
                   <Profile drink='Gong Cha Randwick' img={require('./resources/shop2.png')} />  
-                  <Profile drink='Coco Chinatown' img={require('./resources/Coco.jpg')} />  
+                  <Profile drink='Coco Chinatown' img={require('./resources/coco.jpg')} />  
                 </div>
                 </a>
                
