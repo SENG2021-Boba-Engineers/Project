@@ -328,7 +328,7 @@ def drinks_sold():
     Output: { 'shop_name' : [], 'price' : [] }
     """
     drink_id = request.args.get('drink_id')
-    sql_query = f"""select shop.name, shop.town, menu.price from menu
+    sql_query = f"""select shop.name, shop.town, menu.price, shop.picture_file from menu
     inner join shop on menu.shop_id = shop.id
     where menu.drink_id = {drink_id}"""
     conn = db.create_connection()
@@ -336,10 +336,12 @@ def drinks_sold():
     drink_sold_where_dict = {
         'shop_name': [],
         'prices': []
+        'pictures': []
     }
     for row in output:
         drink_sold_where_dict['shop_name'].append(f"{row[0]} {row[1]}")
         drink_sold_where_dict['prices'].append(str(row[2]).format('.2f'))
+        drink_sold_where['pictures'].append(row[3])
     conn.close()
     return dumps(drink_sold_where_dict)
 
