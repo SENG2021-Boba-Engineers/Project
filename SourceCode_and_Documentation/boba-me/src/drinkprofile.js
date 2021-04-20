@@ -36,7 +36,8 @@ class DrinkProfile extends Component {
 
         axios.get(`http://127.0.0.1:5000/api/drink_sold_where` , { params: { drink_id: drink} }).then(res => {
             
-            if(this._isMounted_shop){         
+            if(this._isMounted_shop){      
+                console.log(res.data)   
                 this.setState({
                     shop_imgs: res.data.pictures,
                     shops: res.data.shop_name,
@@ -72,11 +73,11 @@ class DrinkProfile extends Component {
     }
 
     build_offtering(){
-        
+        // NEED to change the val on line 80
         let items =[]
         this.state.shops.map((val,index) => {
             items.push(
-                <Link style={{ textDecoration: 'none' }} to={"/profile/"+this.state.val}>
+                <Link style={{ textDecoration: 'none' }} to={"/profile/"+val}>
                     <Profile drink={'$'+this.state.shop_price[index]+" at "+val} img={require('./' + this.state.shop_imgs[index])} />
                 </Link>
             )

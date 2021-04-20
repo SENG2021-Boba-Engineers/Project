@@ -2,7 +2,7 @@ import './Modal.css'
 import {motion} from 'framer-motion'
 import Result_profile from './Result_profile'
 
-export const Modal = ({showModal, setShowModal}) => {
+export const Modal = ({showModal, setShowModal , div}) => {
     return (
         <>
             {showModal ? (
@@ -20,7 +20,8 @@ export const Modal = ({showModal, setShowModal}) => {
                         </div>
                         <br></br>
                         <br></br>
-                        <Result_profile drink='Pearl Milk Tea' img={require('../resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
+                        {div}
+                        {/*<Result_profile drink='Pearl Milk Tea' img={require('../resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/> */}
                         <img
                             style={{
                                 

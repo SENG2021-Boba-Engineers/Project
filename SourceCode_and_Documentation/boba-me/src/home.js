@@ -9,15 +9,26 @@ import particlesConfig from './config/particle_config'
 import './particles.css'
 import {Modal} from './components/Modal'
 import axios from 'axios';
+import {Link} from 'react-router-dom'
+import Result_profile from './components/Result_profile'
+
 class Home extends Component {
+  _isMouted_drink = true;
+  _isMouted_shop = true;
   state = {
-    items: Array.from({ length: 20 }),
-    hasMore: true,
     rotate: 0,
     showModal: false,
     setShowModal: false,
     search_for: "",
-    search_option: "shop"
+    search_option: "shop",
+    drink_ids: [],
+    drink_names: [],
+    drink_rating: [],
+    drink_imgs: [],
+    shop_ids: [],
+    shop_names: [],
+    shop_imgs: [],
+
   };
 
   getRotate = () => {
@@ -36,9 +47,6 @@ class Home extends Component {
     })
   }
 
-
-  
-
   openModal = () => {
     if(this.state.showModal === false){
       this.setState({
@@ -52,31 +60,82 @@ class Home extends Component {
 
 
   }
+  
+  fetch_info(){
+    axios.get(`http://127.0.0.1:5000/api/search_drinks`, {  params: { search_term: "" } }).then(
+      res=> { 
+          if (this._isMouted_drink) {
+              this.setState({
+                  drink_ids: res.data.drink_ids,
+                  drink_names: res.data.drink_names,
+                  drink_rating: res.data.dirnk_ratings,
+                  drink_imgs: res.data.drink_pictures,
+              }) 
+              this._isMouted_drink = false; 
+          }
 
-  Search_drink = () => {
-    console.log(this.state.search_for)
-    axios.get(`http://127.0.0.1:5000/api/search_drinks`, { params: { search_term: 'Pearl Milk Tea' } })
-      .then((response) => {
-        console.log(response)
-      })
+      }
+    )
+    axios.get(`http://127.0.0.1:5000/api/search_shops`, {  params: { search_term: "" }}).then(
+      res=> { 
+          if (this._isMouted_shop) {
+              this.setState({
+                  shop_ids: res.data.shop_ids,
+                  shop_names: res.data.shop_names,
+                  shop_imgs: res.data.shop_pics,
+              }) 
+              this._isMouted_shop = false;
+          }
+
+      }
+   ) 
+  }
+
+  
+  random_drink() {
+    var upper = this.state.drink_ids.length -1;
+    var rand = 0 + (Math.random() * upper);
+    this.state.drink_ids.map((val,index) => {
+      if(index == Math.round(rand)){
+        console.log(index)
+        return (
+          <Link style={{ textDecoration: 'none' }} to={"/drinkprofile/"+val}>
+            <Result_profile drink={this.state.drink_names[index]} img={require('./' + this.state.drink_imgs[index])} price="??"  rating="??" />
+          </Link>
+        )
+      }
+  })
+
   }
 
 
-  fetchMoreData = () => {
-    // a fake async api call like which sends
-    // 20 more records in 1.5 secs
-    setTimeout(() => {
-      if (this.state.items.length >= 40) {
-        this.setState({ hasMore: false });
-        return;
-      }
-      this.setState({
-        items: this.state.items.concat(Array.from({ length: 20 }))
-      });
-    }, 1500);
-  };
+  build_shop(){
+    let items =[]
+    this.state.shop_names.map((val,index) => {
+        items.push(
+            <Link style={{ textDecoration: 'none' }} to={"/profile/"+this.state.shop_ids[index]}>
+                <Profile drink={val} img={require('./' + this.state.shop_imgs[index])} />
+            </Link>
+        )
+    })
+    return items;
+  }
+
+  build_drink(){
+    let items =[]
+    this.state.drink_names.map((val,index) => {
+        items.push(
+            <Link style={{ textDecoration: 'none' }} to={"/drinkprofile/"+this.state.drink_ids[index]}>
+                <Profile drink={val} img={require('./' + this.state.drink_imgs[index])} />
+            </Link>
+        )
+    })
+    return items;
+  }
 
     render() {
+        this.fetch_info()
+
         return (
           <div id='body' className="body" >
             <Particles style={{position: 'absolute'}} params={particlesConfig} ></Particles>
@@ -125,7 +184,6 @@ class Home extends Component {
               <div className="right">
 
                 <motion.div
-                  //initial={{ scale: 1}}
                   animate={{ scale: 1.4}}
                   transition={{
                     duration: 3,
@@ -150,7 +208,8 @@ class Home extends Component {
                     setTimeout(this.resetRotate,2000);
                     }}                
                   />
-                  <Modal showModal={this.state.showModal} setShowModal={this.openModal}/>
+                  {this.random_drink()}
+                  <Modal showModal={this.state.showModal} setShowModal={this.openModal} div={this.random_drink()}/>
 
               </div>
             </div> 
@@ -162,35 +221,11 @@ class Home extends Component {
                   <h1>Popular Drinks</h1>                  
                 </div>
                 <a  style={{ textDecoration: 'none' }} href="drinkprofile">
-                <div className='container'>
-                  <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
-                  <Profile drink='Apple Green Tea' img={require('./resources/cha2.png')} />  
-                  <Profile drink='Assam Black Milk Tea' img={require('./resources/cha0.png')} /> 
+                <div className='container-home-drink'>
+                  {this.build_drink()}
                 </div>
                 </a>
-                
-                {/*
-                <InfiniteScroll
-                    dataLength={this.state.items.length} //This is important field to render the next data
-                    next={this.fetchMoreData}
-                    hasMore={true}
-                    //loader={<h4>Loading...</h4>}
-                    endMessage={
-                      <p style={{ textAlign: 'center' }}>
-                        <b>Yay! You have seen it all</b>
-                      </p>
-                    }
-                  >
-                    {this.state.items.map((element ,index) => (
-                      <div className='container'>
-                      <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
-                      <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
-                      <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />                   
-                      </div>
-                    ))}
-    
-                  </InfiniteScroll>
-                  */}
+
                   
               </div>
     
@@ -200,34 +235,9 @@ class Home extends Component {
                 </div>
                 <a  style={{ textDecoration: 'none' }} href="profile">
                 <div className='container'>
-                  <Profile drink='Coco Randwick' img={require('./resources/Coco.jpg')} />  
-                  <Profile drink='Gong Cha Randwick' img={require('./resources/shop2.png')} />  
-                  <Profile drink='Coco Chinatown' img={require('./resources/Coco.jpg')} />  
+                  {this.build_shop()}
                 </div>
                 </a>
-               
-                {/*
-                <InfiniteScroll
-                    dataLength={this.state.items.length} //This is important field to render the next data
-                    next={this.fetchMoreData}
-                    hasMore={true}
-                    //loader={<h4>Loading...</h4>}
-                    endMessage={
-                      <p style={{ textAlign: 'center' }}>
-                        <b>Yay! You have seen it all</b>
-                      </p>
-                    }
-                  >
-                    {this.state.items.map((element ,index) => (
-                      <div className='container'>
-                        <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
-                        <Profile drink='Gong Cha' img={require('./resources/shop2.png')} />  
-                        <Profile drink='Coco' img={require('./resources/Coco.jpg')} />                  
-                      </div>
-                    ))}
-    
-                </InfiniteScroll>
-                    */}
                  
               </div>
     

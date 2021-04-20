@@ -64,8 +64,19 @@
     display: flex;
     padding: 10px;
     margin-left: 15%;
+    gap: 45px;
     align-items: top;
+    flex-wrap: wrap;
 
+}
+
+.container-home-drink{
+    display: flex;
+    padding: 10px;
+    margin-left: 15%;
+    gap: 45px;
+    align-items: top;
+    flex-wrap: wrap;
 }
 
 .grid-item{
