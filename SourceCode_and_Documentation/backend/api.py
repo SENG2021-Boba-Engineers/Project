@@ -145,11 +145,13 @@ def search_drinks():
     drinks_dict = {
         'drink_ids' : [],
         'drink_names' : [],
+        'drink_pictures': [],
         'drink_ratings': []
     }
     for row in output:
         drinks_dict['drink_ids'].append(row[0])
         drinks_dict['drink_names'].append(row[1])
+        drinks_dict['drink_picture'].append(row[2])
         drinks_dict['drink_ratings'].append(row[3])
     conn.close()
     return dumps(drinks_dict)
@@ -317,7 +319,6 @@ def get_drink_info():
         'name':output[2],
         'pictures'   :output[3],
         'rating': output[4]
-
     })
 
 @APP.route("/api/drink_sold_where", methods=['GET'])
