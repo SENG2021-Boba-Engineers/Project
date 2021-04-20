@@ -16,8 +16,10 @@ class Result extends Component {
         drink_ids: [],
         drink_names: [],
         drink_ratings: [],
+        drink_imgs: [],
         shop_ids: [],
-        shop_names: []
+        shop_names: [],
+        shop_imgs: []
     }
 
 
@@ -26,15 +28,17 @@ class Result extends Component {
         if(option == "drink"){
             axios.get(`http://127.0.0.1:5000/api/search_drinks`, { params: { search_term: item } }).then(
                 res=> { 
+                    console.log(res.data)
                     if (this._isMounted) {
                         this.setState({
                             drink_ids: res.data.drink_ids,
                             drink_names: res.data.drink_names,
                             drink_ratings: res.data.drink_ratings,
+                            drink_imgs: res.data.drink_pictures,
                             search_item: item,
                             search_option: "drink"
                         }) 
-                        this._isMounted = false;
+                        this._isMounted = false; 
 
 
                     }
@@ -45,13 +49,14 @@ class Result extends Component {
             axios.get(`http://127.0.0.1:5000/api/search_shops`, { params: { search_term: item } }).then(
                 res=> { 
                     if (this._isMounted) {
-                        console.log(res.data)
                         this.setState({
                             shop_ids: res.data.shop_ids,
                             shop_names: res.data.shop_names,
+                            shop_imgs: res.data.shop_pics,
                             search_item: item,
                             search_option: "shop"
                         }) 
+                        
                         this._isMounted = false;
                     }
 
@@ -75,7 +80,7 @@ class Result extends Component {
                 items.push(
                     <div>
                         <Link style={{ textDecoration: 'none' }} to={"/drinkprofile/"+this.state.drink_ids[index]} >
-                        <Result_profile drink={this.state.drink_names[index]} img={require('./resources/pearl-milk-tea.png').default} price='Depend on shops' rating={this.state.drink_ratings[index]}/>
+                        <Result_profile drink={this.state.drink_names[index]} img={require('./'+this.state.drink_imgs[index]).default} price='Depend on shops' rating={this.state.drink_ratings[index]}/>
                         </Link>
                     </div>
                     
@@ -85,8 +90,8 @@ class Result extends Component {
             this.state.shop_ids.map((id,index) => {
                 items.push(
                     <div>
-                        <Link style={{ textDecoration: 'none' }} to={"/profile/"+this.state.shop_names[index]} >                   
-                        <Result_profile drink={this.state.shop_names[index]} img={require('./resources/Coco.jpg').default} price="0" />
+                        <Link style={{ textDecoration: 'none' }} to={"/profile/"+this.state.shop_ids[index]} >   
+                        <Result_profile drink={this.state.shop_names[index]} img={require('./'+this.state.shop_imgs[index]).default} price="0" />
                         </Link>
                     </div>
                 )
@@ -113,7 +118,7 @@ class Result extends Component {
 
     render() {
         this.Search(this.props.match.params.option,this.props.match.params.item)
-        console.log(this.state)
+       
 
         return (
             
@@ -153,14 +158,7 @@ class Result extends Component {
                             {
                                this.Add_result()
                             }
-                            {/*
-                            img options:
-                            img={require('./resources/pearl-milk-tea.png').default}
-                            img={require('./resources/cha0.png').default}
-                            img={require('./resources/cha1.png').default}
-                            img={require('./resources/cha2.png').default
-                            
-                            */}                                                      
+                                           
                         </div>
                     </div>
 

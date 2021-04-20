@@ -81,21 +81,27 @@ USED IN :
 
 .profile-container{
 */
-.profile-contianer{
+.profile-container{
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: 1500px;
-    background-repeat: repeat;
-    background-position: center;
-    
+    background-image: url("resources/background.jpg");
+    height: 100vh;
 }
 
+.profile-body{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    min-width: 90vh;
+}
 .left-profile{
     display: flex;
     flex-direction: column;
     float:left;
     width: 60%;
+    background-color: transparent;
+    
 }
 
 .right-profile{
@@ -103,18 +109,22 @@ USED IN :
     flex-direction: column;
     float:left;
     width: 40%;
+    background-color:transparent;
 }
 
 .menu{
     padding:50px;
+    padding-left: 0px;
     display: flex;
     flex-direction: column;
     width: 90%;
+    min-width: 90vh;
     min-height: 500px;
 }
 
 .topping{
     padding:50px;
+    padding-left: 0px;
     display: flex;
     flex-direction: column;
     width: 90%;
