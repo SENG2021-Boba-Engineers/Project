@@ -58,17 +58,17 @@ CREATE TABLE reward (
 
 -- Insert Dummy Shop Data (0 for Gong and 1 for Chatime)
 INSERT INTO shop VALUES (0, 'Gong Cha', 'Randwick', 'Sydney', 'Australia', 'resources/shop2.png');
-INSERT INTO shop VALUES (1, 'Chatime', 'Randwick', 'Sydney', 'Australia', 'resource/chatime.png');
+INSERT INTO shop VALUES (1, 'Chatime', 'Randwick', 'Sydney', 'Australia', 'resources/chatime.png');
 INSERT INTO shop VALUES (2, 'Coco', 'Chinatown', 'Sydney', 'Australia', 'resources/coco.jgp');
 INSERT INTO shop VALUES (3, 'King Tea', 'Chinatown', 'Sydney', 'Australia', 'resources/king_tea.png');
 INSERT INTO shop VALUES (4, 'Share Tea', 'Randwick', 'Sydney', 'Australia', 'resources/sharetea.webp');
 
 -- Insert Dummy Drink Data
-INSERT INTO drink VALUES (0, 'Milk Foam Green Tea', 'resource/cha0.png');
-INSERT INTO drink VALUES (1, 'Pearl Milk Tea', 'resource/pearl-milk-tea.png');
-INSERT INTO drink VALUES (2, 'Royal Milk Tea', 'resource/cha2.png');
-INSERT INTO drink VALUES (3, 'Earl Grey Milk Tea', 'resource/Earl-Grey-Milk-Tea.png');
-INSERT INTO drink VALUES (4, 'Milk Foam Green Tea', 'resource/milk-foam-bubble-tea.jpegccc');
+INSERT INTO drink VALUES (0, 'Milk Foam Green Tea', 'resources/cha0.png');
+INSERT INTO drink VALUES (1, 'Pearl Milk Tea', 'resources/pearl-milk-tea.png');
+INSERT INTO drink VALUES (2, 'Royal Milk Tea', 'resources/cha2.png');
+INSERT INTO drink VALUES (3, 'Earl Grey Milk Tea', 'resources/Earl-Grey-Milk-Tea.png');
+INSERT INTO drink VALUES (4, 'Milk Foam Green Tea', 'resources/milk-foam-bubble-tea.jpegccc');
 
 -- Insert Dummy Menu Data
 INSERT INTO menu VALUES (0, 0, 6.20);
