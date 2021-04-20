@@ -1,5 +1,7 @@
 --
 -- PostgreSQL Boba-Me Database (Simple)
+-- Server has to be modified for production to contain
+-- triggers and constraints.
 --
 
 CREATE TABLE shop (
@@ -35,6 +37,17 @@ CREATE TABLE drink (
     rating integer
 );
 
+CREATE TABLE account (
+    user_token character varying(80) UNIQUE NOT NULL,
+    name character varying(80) NOT NULL,
+    email character varying(80) NOT NULL,
+    status integer NOT NULL
+);
+
+CREATE TABLE reward (
+    user_token character varying(80) NOT NULL,
+    reward character varying(80)
+);
 
 -- Insert Dummy Shop Data (0 for Gong and 1 for Chatime)
 INSERT INTO shop VALUES (0, 'Gong Cha', 'Randwick', 'Sydney', 'Australia');
