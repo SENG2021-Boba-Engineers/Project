@@ -25,9 +25,9 @@ ReactDOM.render(
           <Redirect to="/home" />
         </Route>
         <Route path="/reward" component={Reward} />
-        <Route path="/result" component={Result} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/drinkprofile" component={DrinkProfile} />
+        <Route path="/result/:option/:item" component={Result} />
+        <Route path="/profile/:shop" component={Profile} />
+        <Route path="/drinkprofile/:drink" component={DrinkProfile} />
         <Route path="/shopprofile" component={ShopProfile} />
         <Route path="/shopsearch" component={ShopResult} />
     </Switch>

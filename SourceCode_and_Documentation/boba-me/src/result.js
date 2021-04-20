@@ -3,10 +3,120 @@ import Button from './components/Button_Jing'
 import Result_profile from './components/Result_profile'
 import bg_img from './resources/background.jpg'
 import {motion} from 'framer-motion'
+import axios from 'axios';
+import {Link} from 'react-router-dom'
+
+
 
 class Result extends Component {
+    _isMounted = true;
+    state={
+        search_option: "",
+        search_item: "",
+        drink_ids: [],
+        drink_names: [],
+        drink_ratings: [],
+        shop_ids: [],
+        shop_names: []
+    }
+
+
+    Search(option, item) {
+        this._isMounted = true;
+        if(option == "drink"){
+            axios.get(`http://127.0.0.1:5000/api/search_drinks`, { params: { search_term: item } }).then(
+                res=> { 
+                    if (this._isMounted) {
+                        this.setState({
+                            drink_ids: res.data.drink_ids,
+                            drink_names: res.data.drink_names,
+                            drink_ratings: res.data.drink_ratings,
+                            search_item: item,
+                            search_option: "drink"
+                        }) 
+                        this._isMounted = false;
+
+
+                    }
+
+                }
+            )
+        }else{
+            axios.get(`http://127.0.0.1:5000/api/search_shops`, { params: { search_term: item } }).then(
+                res=> { 
+                    if (this._isMounted) {
+                        console.log(res.data)
+                        this.setState({
+                            shop_ids: res.data.shop_ids,
+                            shop_names: res.data.shop_names,
+                            search_item: item,
+                            search_option: "shop"
+                        }) 
+                        this._isMounted = false;
+                    }
+
+                }
+            )     
+        }
+        
+      }
+
+      Unmount(){
+        this.setState((state,callback) => {
+            this._isMounted = false;
+            return;
+        })
+      }
+
+      Add_result(){
+        let items = []
+        if(this.state.search_option == "drink"){
+            this.state.drink_ids.map((id,index) => {
+                items.push(
+                    <div>
+                        <Link style={{ textDecoration: 'none' }} to={"/drinkprofile/"+this.state.drink_ids[index]} >
+                        <Result_profile drink={this.state.drink_names[index]} img={require('./resources/pearl-milk-tea.png').default} price='Depend on shops' rating={this.state.drink_ratings[index]}/>
+                        </Link>
+                    </div>
+                    
+                    )
+            })
+        }else{
+            this.state.shop_ids.map((id,index) => {
+                items.push(
+                    <div>
+                        <Link style={{ textDecoration: 'none' }} to={"/profile/"+this.state.shop_names[index]} >                   
+                        <Result_profile drink={this.state.shop_names[index]} img={require('./resources/Coco.jpg').default} price="0" />
+                        </Link>
+                    </div>
+                )
+            })            
+        }
+
+        if(items.length == 0){
+            return <div>
+                <br></br>
+                <p>Ops, there is no matching result!</p>
+                <p>Here are some suggested searches:</p>
+                <p>Drinks</p>
+                <p> - Milk Tea</p>
+                <p> - Foam Green Tea</p>
+                <p>SHops</p>
+                <p> - Chatime</p>
+                <p> - Gong Cha</p>
+            </div>
+        }
+        return items;
+      }
+
+
+
     render() {
+        this.Search(this.props.match.params.option,this.props.match.params.item)
+        console.log(this.state)
+
         return (
+            
             <div className='result' style={{ backgroundImage: `url(${bg_img})` }} >
 
                 <motion.div className='result-banner'
@@ -16,8 +126,10 @@ class Result extends Component {
                 >
                     <h2>&nbsp; Results &nbsp;</h2>
                     <div>
-                        <input type="search" id="result-search" name="q" aria-label="Search through site content"></input>
+                        <input type="search" onChange={event => (this.setState({search_for: event.target.value}))} name="q" aria-label="Search through site content"></input>
+                        <Link id="result-search-link" to={"/result/"+this.state.search_option + "/" + this.state.search_for}>
                         <Button text='Search' colour='deepskyblue'/>
+                        </Link>
                     </div>
                     
                 </motion.div>
@@ -38,16 +150,16 @@ class Result extends Component {
 
                     <div className='result-list'>
                         <div className='result-grid'>
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/> 
-                            <Result_profile drink='Assam Black Milk Tea' img={require('./resources/cha0.png').default} price='$7.00' rating='4.5/5'/>
-                            <Result_profile drink='Lychee Tea' img={require('./resources/cha1.png').default} price='$7.00' rating='3.5/5'/>
-                            <Result_profile drink='Apple Green Tea' img={require('./resources/cha2.png').default} price='$7.00' rating='4/5'/>
+                            {
+                               this.Add_result()
+                            }
                             {/*
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/> 
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
-                            <Result_profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/>
+                            img options:
+                            img={require('./resources/pearl-milk-tea.png').default}
+                            img={require('./resources/cha0.png').default}
+                            img={require('./resources/cha1.png').default}
+                            img={require('./resources/cha2.png').default
+                            
                             */}                                                      
                         </div>
                     </div>

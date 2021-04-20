@@ -3,6 +3,7 @@ import {motion} from 'framer-motion';
 const Result_profile = ({drink,img,price,rating}) => {
 
     return (
+        
         <motion.div className='profile'
             initial = {{rotate: -20}}
             animate ={{ rotate: 0}}
@@ -16,9 +17,10 @@ const Result_profile = ({drink,img,price,rating}) => {
             <div className='profile_display_left'>
                 <p style={{fontFamily:'Georgia', fontSize: "20px", color: "Black"}} >{drink}</p>
                 <br></br>
-                <p style={{fontFamily:'Georgia', fontSize: "20px", color: "Black"}}>Rating: {rating}</p>
+                {(price == "0")?  <div></div> :  <p style={{fontFamily:'Georgia', fontSize: "20px", color: "Black"}}>Rating: {(rating == null ? "No ratings yet" : rating)}</p> }
                 <br></br>
-                <p style={{fontFamily:'Georgia', fontSize: "20px", color: "Black"}}>Price: {price}</p>
+                {(price == "0")?  <div></div> :  <p style={{fontFamily:'Georgia', fontSize: "20px", color: "Black"}}>Price: {price}</p> }
+                
             </div>
 
             <div className='profile_display_right'>
