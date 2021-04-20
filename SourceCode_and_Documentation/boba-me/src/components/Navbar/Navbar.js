@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import GoogleLogin from 'react-google-login';
+import './Navbar.css'
 
 const Navbar = () => {
     return (
@@ -15,10 +16,16 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
-                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <GoogleLogin
+                    clientId="779473173245-07oiunmq33n9f0mresc06u4h42543183.apps.googleusercontent.com"
+                    buttonText="Login"
+                    onSuccess={ (res) => console.log(res.profileObj)}
+                    onFailure={ (res) => console.log(res.profileObj)}
+                    cookiePolicy={"single_host_origin"}
+                />
             </li>
             </ul>
         </div>

@@ -1,0 +1,11 @@
+.navbar-brand {
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+  }
+
+.navbar-nav > li{
+    padding-left:10px;
+    padding-right:10px;
+}
+
