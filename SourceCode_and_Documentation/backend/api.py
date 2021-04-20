@@ -315,7 +315,9 @@ def get_drink_info():
     return dumps({
         'name'     :output[1],
         'drink_img':output[2],
-        'rating'   :output[3]
+        'pictures'   :output[3],
+        'rating': output[4]
+
     })
 
 @APP.route("/api/drink_sold_where", methods=['GET'])
