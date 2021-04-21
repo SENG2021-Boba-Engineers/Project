@@ -9,6 +9,7 @@ import particlesConfig from './config/particle_config'
 import './particles.css'
 import {Modal} from './components/Modal'
 import axios from 'axios';
+
 class Home extends Component {
   state = {
     items: Array.from({ length: 20 }),
@@ -200,9 +201,9 @@ class Home extends Component {
                 </div>
                 <a  style={{ textDecoration: 'none' }} href="profile">
                 <div className='container'>
-                  <Profile drink='Coco Randwick' img={require('./resources/Coco.jpg')} />  
+                  <Profile drink='Coco Randwick' img={require('./resources/coco_logo.webp')} />  
                   <Profile drink='Gong Cha Randwick' img={require('./resources/shop2.png')} />  
-                  <Profile drink='Coco Chinatown' img={require('./resources/Coco.jpg')} />  
+                  <Profile drink='Coco Chinatown' img={require('./resources/coco_logo.webp')} />  
                 </div>
                 </a>
                
@@ -220,9 +221,9 @@ class Home extends Component {
                   >
                     {this.state.items.map((element ,index) => (
                       <div className='container'>
-                        <Profile drink='Coco' img={require('./resources/Coco.jpg')} />  
+                        <Profile drink='Coco' img={require('./resources/coco_logo.webp')} />  
                         <Profile drink='Gong Cha' img={require('./resources/shop2.png')} />  
-                        <Profile drink='Coco' img={require('./resources/Coco.jpg')} />                  
+                        <Profile drink='Coco' img={require('./resources/coco_logo.webp')} />                  
                       </div>
                     ))}
     

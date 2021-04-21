@@ -90,8 +90,13 @@ class Result extends Component {
             this.state.shop_ids.map((id,index) => {
                 items.push(
                     <div>
+<<<<<<< HEAD
                         <Link style={{ textDecoration: 'none' }} to={"/profile/"+this.state.shop_ids[index]} >   
                         <Result_profile drink={this.state.shop_names[index]} img={require('./'+this.state.shop_imgs[index]).default} price="0" />
+=======
+                        <Link style={{ textDecoration: 'none' }} to={"/profile/"+this.state.shop_names[index]} >                   
+                        <Result_profile drink={this.state.shop_names[index]} img={require('./resources/coco_logo.webp').default} price="0" />
+>>>>>>> NavBar
                         </Link>
                     </div>
                 )
