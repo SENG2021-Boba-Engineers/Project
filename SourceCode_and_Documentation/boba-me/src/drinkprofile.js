@@ -92,9 +92,6 @@ class DrinkProfile extends Component {
         })
     }
 
-    
-
-
     render() {
         this.Search(this.props.match.params.drink)
         //this.rate(1,4)
@@ -131,7 +128,6 @@ class DrinkProfile extends Component {
                             </div>
                         </div>
                     </div>
-
                     <div className='right-profile' >
                         
                         <h2>This drink is sold at</h2>

@@ -91,7 +91,7 @@ class Result extends Component {
                 items.push(
                     <div>
                         <Link style={{ textDecoration: 'none' }} to={"/profile/"+id+'/'+this.state.shop_names[index]} >   
-                        <Result_profile drink={this.state.shop_names[index]} img={require('./'+this.state.shop_imgs[index]).default} price="0" />
+                            <Result_profile drink={this.state.shop_names[index]} img={require('./'+this.state.shop_imgs[index]).default} price="0" />
                         </Link>
                     </div>
                 )

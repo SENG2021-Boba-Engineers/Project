@@ -1,65 +1,51 @@
-import React, { Component } from 'react';
-import { MenuItems } from "./MenuItems";
-import { Button } from "../Button";
-import icon from './Boba_Me_Icon.png';
-import './Navbar.css';
+import {React, Component} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import GoogleLogin from 'react-google-login';
-import {motion} from "framer-motion";
-import {Link} from 'react-router-dom'
+import './Navbar.css'
 
-// Remember to change to Boba Me"
-
-class Navbar extends Component {
-    state = { 
-        clicked: false,
-        logged_in: false
+class MainNav extends Component {
+    constructor(props){
+        super(props)
+          
+        // Set initial state
+        this.state = {msg : <GoogleLogin
+            clientId="779473173245-07oiunmq33n9f0mresc06u4h42543183.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={ (res) => console.log(res.profileObj)}
+            onFailure={ (res) => console.log(res.profileObj)}
+            cookiePolicy={"single_host_origin"}
+        />}
+          
+        // Binding this keyword
+        this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClick = () => {
-        this.setState({ clicked: !this.state.clicked })
+    handleClick() {
+        this.setState({msg : <a className="nav-link" href="/reward">Rewards<span className="sr-only">(current)</span></a>})
     }
-
+    
     render() {
         return (
-            <motion.nav className="NavbarItems"
-                initial= {{ opacity: 0}}
-                animate= {{ opacity: 1}}
-                transition= {{ duration: 0.65}}
-            >
-                <Link className="logo-redirect" to="/home">
-                <h1 className="navbar-logo">
-                    Boba Me<img src={icon}/>
-                </h1>
-                </Link>
-                <div className="menu-icon" onClick={this.handleClick}>
-                    <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-                </div>
-                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {MenuItems.map((item, index) => {
-                        return (
-                            <li>
-                                <a className={item.cName} href={item.url}>
-                                {item.title}
-                                </a>
-                            </li>
-                        )
-                    })}
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <a className="navbar-brand" href="/">
+                    <img src="Boba_Me_Icon.png" width="30" height="30" alt=""/>
+                    Boba Me</a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav ml-auto">
+                <li className="nav-item active">
+                    <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item" onClick={this.handleClick}>
+                    {this.state.msg}
+                </li>
                 </ul>
-                <GoogleLogin
-                    clientId="779473173245-07oiunmq33n9f0mresc06u4h42543183.apps.googleusercontent.com"
-                    buttonText="Login"
-                    onSuccess={ (res) => console.log(res.profileObj)}
-                    onFailure={ (res) => console.log(res.profileObj)}
-                    cookiePolicy={"single_host_origin"}
-                />
-                <a href="reward">
-                  <Button>My Rewards</Button>
-                </a>
-
-
-            </motion.nav>
+            </div>
+            </nav>
         )
     }
 }
 
-export default Navbar
+export default MainNav;

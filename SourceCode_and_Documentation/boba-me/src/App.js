@@ -1,12 +1,13 @@
 import React from 'react';
-import Navbar from "./components/Navbar/Navbar"
 import './App.css'
+import './index.css'
+import MainNav from './components/Navbar/Navbar';
 
 function App() {
 
  return (
     // Constant Across Whole App
-    <Navbar />
+    <MainNav />
   );
 
 }
