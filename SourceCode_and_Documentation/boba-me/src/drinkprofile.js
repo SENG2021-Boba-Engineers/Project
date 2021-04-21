@@ -91,9 +91,6 @@ class DrinkProfile extends Component {
         })
     }
 
-    
-
-
     render() {
         this.Search(this.props.match.params.drink)
         //this.rate(1,4)
@@ -130,8 +127,6 @@ class DrinkProfile extends Component {
                             </div>
                         </div>
                     </div>
-
-<<<<<<< HEAD
                     <div className='right-profile' >
                         
                         <h2>This drink is sold at</h2>
@@ -139,19 +134,6 @@ class DrinkProfile extends Component {
                             <div className='shop-grid'>
                                 {this.build_offtering()}
                             </div>
-=======
-                <div className='right-profile'>
-                    <h1>&nbsp;</h1>
-                    <h2>This drink is sold at</h2>
-                    <div className='infodisplay'>
-                        <div className='shop-grid'>
-                            <Profile drink='$5.00' img={require('./resources/coco_logo.webp')} />  
-                            <Profile drink='$6.00' img={require('./resources/c1.jpg')} />  
-                            <Profile drink='$6.00' img={require('./resources/c3.png')} />  
-                            <Profile drink='$6.20' img={require('./resources/c4.webp')} />
-                            <Profile drink='$6.50' img={require('./resources/coco_logo.webp')} />
-                            <Profile drink='$7.00' img={require('./resources/coco_logo.webp')} />
->>>>>>> NavBar
                         </div>
                     </div> 
                 </div>
