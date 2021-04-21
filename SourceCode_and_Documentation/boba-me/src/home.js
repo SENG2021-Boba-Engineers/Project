@@ -231,7 +231,7 @@ class Home extends Component {
                 <div className="container-heading">
                   <h1>Popular Shops</h1>                  
                 </div>
-                <a  style={{ textDecoration: 'none' }} href="profile">
+                <a  style={{ textDecoration: 'none' }} href="profile/0">
                 <div className='container'>
                   {this.build_shop()}
                 </div>
