@@ -1,8 +1,10 @@
 import './Modal.css'
 import {motion} from 'framer-motion'
 import Result_profile from './Result_profile'
+import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-export const Modal = ({showModal, setShowModal , div}) => {
+export const Modal = ({showModal, setShowModal , info}) => {
     return (
         <>
             {showModal ? (
@@ -14,14 +16,18 @@ export const Modal = ({showModal, setShowModal , div}) => {
                     <button className='modal_btn' onClick={setShowModal}> X </button>
                     <div className='modal_content'>
                         <div>
-                            <a>    
+                            <a style={{fontSize: "30px",}}>    
                                 Your Lucky Drink !
                             </a>
                         </div>
                         <br></br>
                         <br></br>
-                        {div}
-                        {/*<Result_profile drink='Pearl Milk Tea' img={require('../resources/pearl-milk-tea.png').default} price='$7.00' rating='4/5'/> */}
+                        {(info == [] ) ? <div><p>Ops your out of luck, try again later</p></div>  : 
+                            <Link style={{ textDecoration: 'none' }} to={'/drinkprofile/'+ info[0]}>
+                                <Result_profile drink={info[1]} img={require('../' + info[3]).default} price='???' rating='???'/> 
+                            </Link>
+                        }
+
                         <img
                             style={{
                                 
@@ -38,4 +44,8 @@ export const Modal = ({showModal, setShowModal , div}) => {
             ) : null}
         </>
     )
+}
+
+Modal.propTypes = {
+    info: PropTypes.array,
 }

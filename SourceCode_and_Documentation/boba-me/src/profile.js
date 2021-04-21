@@ -124,7 +124,7 @@ class Profile extends Component {
                     initial={{ opacity:1, x: -250}}
                     animate={{ opacity:1, x: 0}}
                     transition= {{ duration: 1.5 }}
-                ><h1>Shop: Gong Cha Randwick</h1></motion.div>
+                ><h1>{this.props.match.params.name}</h1></motion.div>
 
                 <div className='profile-body'>
                     <div className='left-profile'>

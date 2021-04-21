@@ -28,7 +28,7 @@ class Home extends Component {
     shop_ids: [],
     shop_names: [],
     shop_imgs: [],
-
+    info: []
   };
 
   getRotate = () => {
@@ -36,9 +36,24 @@ class Home extends Component {
   }
 
   setRotate = () => {
+    let items = [];
     this.setState({
       rotate: Math.random() * (2800-1070) + 1070
     })
+
+    if( (!this._isMouted_drink) && (!this._isMouted_shop)) {
+      var upper = this.state.drink_ids.length -1;
+      var random = 0 + (Math.random() * upper);
+      var rand = Math.round(random);
+      items.push(this.state.drink_ids[rand]);
+      items.push(this.state.drink_names[rand]);
+      items.push("???");
+      items.push(this.state.drink_imgs[rand]);
+      this.setState({
+        info: items
+      });
+    }
+
   }
 
   resetRotate = () =>{
@@ -91,22 +106,6 @@ class Home extends Component {
    ) 
   }
 
-  
-  random_drink() {
-    var upper = this.state.drink_ids.length -1;
-    var rand = 0 + (Math.random() * upper);
-    this.state.drink_ids.map((val,index) => {
-      if(index == Math.round(rand)){
-        console.log(index)
-        return (
-          <Link style={{ textDecoration: 'none' }} to={"/drinkprofile/"+val}>
-            <Result_profile drink={this.state.drink_names[index]} img={require('./' + this.state.drink_imgs[index])} price="??"  rating="??" />
-          </Link>
-        )
-      }
-  })
-
-  }
 
 
   build_shop(){
@@ -161,7 +160,7 @@ class Home extends Component {
 
                     <input type="search" onChange={event => (this.setState({search_for: event.target.value}))} style={{height: '25x', width: '300px'}} aria-label="Search through site content"></input>
                     
-                    <select id="search_option" onChange={event => (this.setState({search_option: event.target.value}, console.log(event.target.value)))}>
+                    <select id="search_option" onChange={event => (this.setState({search_option: event.target.value}))}>
                         <option value="shop" >Search by Shop</option>
                         <option value="drink">Search by Drink</option>
                     </select>
@@ -208,8 +207,7 @@ class Home extends Component {
                     setTimeout(this.resetRotate,2000);
                     }}                
                   />
-                  {this.random_drink()}
-                  <Modal showModal={this.state.showModal} setShowModal={this.openModal} div={this.random_drink()}/>
+                  <Modal showModal={this.state.showModal} setShowModal={this.openModal} info={this.state.info}/>
 
               </div>
             </div> 
