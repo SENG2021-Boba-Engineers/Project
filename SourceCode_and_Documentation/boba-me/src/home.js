@@ -162,7 +162,7 @@ class Home extends Component {
                 <div className="container-heading">
                   <h1>Popular Drinks</h1>                  
                 </div>
-                <a  style={{ textDecoration: 'none' }} href="drinkprofile">
+                <a  style={{ textDecoration: 'none' }} href="drinkprofile/1">
                 <div className='container'>
                   <Profile drink='Pearl Milk Tea' img={require('./resources/pearl-milk-tea.png')} />  
                   <Profile drink='Apple Green Tea' img={require('./resources/cha2.png')} />  
@@ -199,7 +199,7 @@ class Home extends Component {
                 <div className="container-heading">
                   <h1>Popular Shops</h1>                  
                 </div>
-                <a  style={{ textDecoration: 'none' }} href="profile">
+                <a  style={{ textDecoration: 'none' }} href="profile/0">
                 <div className='container'>
                   <Profile drink='Coco Randwick' img={require('./resources/coco_logo.webp')} />  
                   <Profile drink='Gong Cha Randwick' img={require('./resources/shop2.png')} />  
