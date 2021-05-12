@@ -159,7 +159,7 @@ class Profile extends Component {
 
                             <div>
                             <iframe
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAupWuHcLkDh1VdlAwfNNttBOmOrJlyDXo&q=Gong+Cha,Randwick+Sydney+Australia"
+                                src="https://www.google.com/maps/embed/v1/place?key={API_KEY}&q=Gong+Cha,Randwick+Sydney+Australia"
                                 width="550"
                                 height="412.5"
                                 frameBorder="0"
